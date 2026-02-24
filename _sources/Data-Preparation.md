@@ -1,117 +1,74 @@
-# **Data Preparation**
+# Data Preparation
 
-Tahap **Data Preparation** merupakan bagian penting dalam metodologi CRISP-DM yang dilakukan setelah Data Understanding. Pada tahap ini, data yang telah dianalisis karakteristiknya dipersiapkan agar siap digunakan pada tahap pemodelan (modeling).
+Tahap Data Preparation merupakan salah satu tahapan penting dalam metodologi CRISP-DM yang dilakukan setelah Data Understanding. Pada tahap ini, data yang telah dipahami karakteristiknya kemudian dipersiapkan agar siap digunakan pada tahap pemodelan (modeling).
+Data yang diperoleh dari berbagai sumber biasanya masih dalam kondisi mentah dan belum siap untuk langsung dianalisis. Oleh karena itu, tahap Data Preparation dilakukan untuk memperbaiki dan menyiapkan data agar lebih rapi dan berkualitas, sehingga proses analisis dan pemodelan dapat berjalan dengan baik dan menghasilkan hasil yang lebih akurat.
 
-Tujuan utama tahap ini adalah memastikan data dalam kondisi bersih, konsisten, dan berkualitas sehingga model yang dibangun dapat menghasilkan performa yang optimal.
+### 1. Memilih Data
 
----
+Pada tahap ini dilakukan pemilihan data yang akan digunakan dalam proses analisis dan pemodelan.
+Dataset yang digunakan adalah dataset Iris, yang terdiri dari 150 data dengan 5 atribut, yaitu:
 
-## **1. Pemilihan Data (Data Selection)**
+- sepal_length
+- sepal_width
+- petal_length
+- petal_width
+- species
 
-Dataset yang digunakan adalah **Iris Dataset**, yang terdiri dari:
 
-* 150 data
-* 4 atribut numerik:
+### 2. Membersihkan Data
 
-  * `sepal_length`
-  * `sepal_width`
-  * `petal_length`
-  * `petal_width`
-* 1 atribut kategorikal:
+##### - Cek Missing Value
 
-  * `species`
+|  |  |
+| :-- | :-- |
+| sepal_length | 0 |
+| sepal_width | 0 |
+| petal_length | 0 |
+| petal_width | 0 |
+| species | 0 |
 
-Seluruh atribut digunakan dalam proses analisis dan pemodelan karena semuanya relevan untuk klasifikasi spesies bunga iris.
+Berdasarkan hasil pemeriksaan pada data understanding, seluruh atribut memiliki nilai 0 pada missing value. Hal ini menunjukkan bahwa dataset sudah lengkap dan tidak memerlukan penanganan missing value.
 
----
+##### - Cek Data Duplikat
 
-## **2. Pembersihan Data (Data Cleaning)**
+Berdasarkan hasil pemeriksaan pada data understanding, terdapat 3 data duplikat pada dataset. Data tersebut kemudian akan dihapus pada tahap pembersihan data untuk memastikan kualitas dataset tetap baik.
 
-### a. Pengecekan Missing Value
-
-Hasil pengecekan menunjukkan:
-
-| Atribut      | Missing Value |
-| ------------ | ------------- |
-| sepal_length | 0             |
-| sepal_width  | 0             |
-| petal_length | 0             |
-| petal_width  | 0             |
-| species      | 0             |
-
-Kesimpulan:
-Tidak terdapat missing value, sehingga tidak diperlukan proses imputasi atau penghapusan data.
-
----
-
-### b. Pengecekan dan Penghapusan Data Duplikat
-
-Berdasarkan tahap Data Understanding, ditemukan **3 data duplikat**.
-
-Untuk menampilkan data duplikat:
-
-```python
+```
 duplikat = df[df.duplicated()]
 print(duplikat)
 ```
 
-Data duplikat terdapat pada indeks:
+| sepal_length | sepal_width | petal_length | petal_length | petal_width | species |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| 34 | 4.9 | 3.1 | 1.5 | 0.1 | Iris-setosa |
+| 37 | 4.9 | 3.1 | 1.5 | 0.1 | Iris-setosa |
+| 142 | 5.8 | 2.7 | 5.1 | 0.9 | Iris-virginica |
 
-* 34
-* 37
-* 142
+Data duplikat ditampilkan menggunakan fungsi duplicated(). Data duplikat terdapat pada baris  34, 37, dan 142.
 
-Untuk menghapus data duplikat:
-
-```python
+```
 df = df.drop_duplicates()
 ```
 
-Penghapusan data duplikat penting dilakukan karena:
+Data duplikat dapat menyebabkan analisis menjadi kurang akurat karena data yang sama dihitung lebih dari satu kali. Oleh karena itu, dilakukan proses pembersihan data dengan menghapus data duplikat menggunakan fungsi drop_duplicates() pada Python.
 
-* Mencegah bias dalam proses pemodelan
-* Menghindari perhitungan data yang sama lebih dari satu kali
-* Meningkatkan kualitas dataset
+Setelah dilakukan penghapusan, jumlah data berkurang dan tidak terdapat lagi data duplikat, sehingga dataset menjadi lebih bersih dan siap digunakan untuk proses analisis dan pemodelan.
 
-Setelah penghapusan, jumlah data berkurang menjadi **147 data** dan tidak terdapat lagi duplikasi.
+![original image](https://cdn.mathpix.com/snip/images/n9MAjgsSondmmBsZjTsThSPfzJmFd8hVKyvfmxiaNLY.original.fullsize.png)
 
----
+##### - Kesimpulan
 
-### c. Kesimpulan Tahap Pembersihan Data
+Berdasarkan proses pembersihan data yang telah dilakukan, diketahui bahwa:
 
-Berdasarkan proses yang telah dilakukan:
+- Tidak terdapat missing value
+- Tidak terdapat data duplikat
 
-* Tidak terdapat missing value
-* Data duplikat telah dihapus
-* Dataset dalam kondisi bersih
+Dengan demikian, dataset sudah bersih dan siap digunakan untuk tahap selanjutnya, yaitu transformasi data dan pemodelan.
 
-Dataset siap digunakan untuk tahap transformasi dan pemodelan.
+### 3. Integrasi Data
 
----
+Tahap data integration bertujuan untuk menggabungkan data dari berbagai sumber menjadi satu dataset yang konsisten dan terstruktur.
 
-## **3. Integrasi Data (Data Integration)**
+Pada penelitian ini, dataset Iris diperoleh dari satu sumber dan seluruh atribut yang dibutuhkan sudah tersedia dalam satu file. Atribut tersebut meliputi sepal_length, sepal_width, petal_length, petal_width, dan species.
 
-Tahap Data Integration bertujuan untuk menggabungkan data dari berbagai sumber agar menjadi dataset yang konsisten.
-
-Pada penelitian ini:
-
-* Dataset diperoleh dari satu sumber (Kaggle)
-* Seluruh atribut sudah tersedia dalam satu file
-* Tidak ada data tambahan dari sumber lain
-
-Kesimpulan:
-Tidak diperlukan proses integrasi data karena dataset sudah terstruktur dan lengkap dalam satu file.
-
----
-
-# **Kesimpulan Tahap Data Preparation**
-
-Pada tahap Data Preparation telah dilakukan:
-
-1. Pemilihan seluruh atribut yang relevan
-2. Pengecekan missing value (tidak ditemukan)
-3. Penghapusan 3 data duplikat
-4. Verifikasi kesiapan dataset
-
-Dataset akhir berjumlah **147 data** dan siap digunakan untuk tahap **Modeling**.
-
+Karena seluruh data sudah terintegrasi dalam satu dataset dan tidak terdapat sumber data lain yang perlu digabungkan, maka tidak diperlukan proses integrasi tambahan.

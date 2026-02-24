@@ -1,171 +1,184 @@
-# **Data Understanding**
+# Data Understanding
 
-## **1. Sumber Data**
+### 1. Sumber Data
 
-Dataset yang digunakan adalah **Iris Flower Dataset** yang diperoleh dari platform Kaggle. Dataset ini merupakan dataset klasik dalam bidang data mining dan machine learning yang sering digunakan sebagai studi kasus klasifikasi.
+Dataset yang digunakan adalah Iris Flower Dataset yang diperoleh dari platform Kaggle. Dataset ini merupakan dataset klasik dalam bidang data mining dan machine learning yang berisi data pengukuran bunga iris dari tiga spesies berbeda, yaitu Setosa, Versicolor, dan Virginica. Dataset ini digunakan sebagai studi kasus untuk penerapan metode klasifikasi dalam penambangan data.
+Berikut link dari dataset 
+[Dataset Iris](https://www.kaggle.com/datasets/arshid/iris-flower-dataset?resource=download)
 
-Dataset dapat diakses melalui:
-[https://www.kaggle.com/datasets/arshid/iris-flower-dataset](https://www.kaggle.com/datasets/arshid/iris-flower-dataset)
+### 2. Deskripsi Dataset
 
-Dataset ini berisi data pengukuran bunga iris dari tiga spesies:
+Dataset yang digunakan dalam penelitian ini adalah Iris Flower Dataset yang terdiri dari 150 data dengan 5 atribut. Dataset ini digunakan untuk mengklasifikasikan bunga iris ke dalam tiga spesies berdasarkan ukuran bagian bunganya. 
+### 3. Eksplorasi Dataset
 
-* *Iris-setosa*
-* *Iris-versicolor*
-* *Iris-virginica*
+Dalam proses mengidentifikasi dataset ini, python membantu untuk mempermudah pengidentifikasiannya.
+#### Eksplorasi Dataset dengan menggunakan Python:
+##### - Upload file CSV
+```
+from google.colab import files
+files.upload()
+```
+Proses upload file CSV dilakukan untuk memasukkan dataset ke dalam lingkungan Google Colaboratory agar dapat diproses menggunakan bahasa pemrograman Python. Dataset diunggah secara manual dari perangkat pengguna menggunakan fungsi files.upload() yang disediakan oleh Google Colab.
 
----
+##### - Struktur Dataset
 
-## **2. Deskripsi Dataset**
-
-Dataset terdiri dari **150 data** dengan **5 atribut**, yaitu:
-
-1. **Sepal Length (cm)** – panjang kelopak luar (numerik)
-2. **Sepal Width (cm)** – lebar kelopak luar (numerik)
-3. **Petal Length (cm)** – panjang mahkota bunga (numerik)
-4. **Petal Width (cm)** – lebar mahkota bunga (numerik)
-5. **Species** – jenis bunga (kategorikal)
-
-Dataset ini digunakan untuk mengklasifikasikan spesies bunga iris berdasarkan ukuran morfologinya.
-
----
-
-## **3. Eksplorasi Dataset Menggunakan Python**
-
-### a. Struktur Dataset
-
-Dataset dibaca menggunakan library **Pandas**:
-
-```python
+```
 import pandas as pd
+import matplotlib.pyplot as plt
+
 df = pd.read_csv("IRIS.csv")
 df.head()
 ```
 
-Hasil menunjukkan dataset memiliki 150 baris dan 5 kolom.
+Berikut tampilan dari code di atas setelah di jalankan:
 
----
+|index|sepal\_length|sepal\_width|petal\_length|petal\_width|species|
+|---|---|---|---|---|---|
+|0|5\.1|3\.5|1\.4|0\.2|Iris-setosa|
+|1|4\.9|3\.0|1\.4|0\.2|Iris-setosa|
+|2|4\.7|3\.2|1\.3|0\.2|Iris-setosa|
+|3|4\.6|3\.1|1\.5|0\.2|Iris-setosa|
+|4|5\.0|3\.6|1\.4|0\.2|Iris-setosa|
 
-### b. Statistik Deskriptif
+ Dataset memiliki 5 kolom, yaitu:
+ 1. Sepal Length (cm) (Numeric)
+    Menunjukkan panjang kelopak luar bunga iris dalam satuan sentimeter.
+ 3. Sepal Width (cm) (Numeric)
+    Menunjukkan lebar kelopak luar bunga iris dalam satuan sentimeter.
+ 5. Petal Length (cm) (Numeric)
+    Menunjukkan panjang mahkota bunga iris dalam satuan sentimeter.
+ 7. Petal Width (cm) (Numeric)
+    Menunjukkan lebar mahkota bunga iris dalam satuan sentimeter.
+ 9. Species (Kategorikal - String)
+     Menunjukkan jenis bunga iris, yang terdiri dari tiga kategori:
 
-```python
+    - Setosa
+    - Versicolor
+    - Virginica
+
+##### -Statistik Deskriptif Awal
+
+```
 df.describe()
 ```
+Statistik deskriptif digunakan untuk mengetahui gambaran umum data seperti nilai rata-rata, nilai minimum, dan maksimum dari setiap atribut numerik.
 
-Hasil statistik deskriptif menunjukkan:
+Dataset Iris memiliki 4 atribut numerik, yaitu:
+- Sepal Length
+- Sepal Width
+- Petal Length
+- Petal Width
 
-* Seluruh atribut numerik memiliki jumlah data **150**, sehingga tidak terdapat missing value.
-* Rata-rata:
+Berikut contoh statistik deskriptifnya:
 
-  * Sepal length: 5.84 cm
-  * Sepal width: 3.05 cm
-  * Petal length: 3.76 cm
-  * Petal width: 1.20 cm
-* Standar deviasi terbesar terdapat pada **petal length (1.76)**, menunjukkan variasi yang lebih tinggi dibanding atribut lain.
-* Rentang data masih dalam batas wajar tanpa penyimpangan ekstrem.
+|index|sepal\_length|sepal\_width|petal\_length|petal\_width|
+|---|---|---|---|---|
+|count|150\.0|150\.0|150\.0|150\.0|
+|mean|5\.843333333333334|3\.0540000000000003|3\.758666666666666|1\.1986666666666668|
+|std|0\.8280661279778629|0\.4335943113621737|1\.7644204199522617|0\.7631607417008414|
+|min|4\.3|2\.0|1\.0|0\.1|
+|25%|5\.1|2\.8|1\.6|0\.3|
+|50%|5\.8|3\.0|4\.35|1\.3|
+|75%|6\.4|3\.3|5\.1|1\.8|
+|max|7\.9|4\.4|6\.9|2\.5|
 
-Secara umum, dataset memiliki distribusi yang baik dan layak digunakan untuk proses pemodelan.
+Berdasarkan hasil analisis statistik deskriptif, dataset Iris terdiri dari 150 data pada setiap atribut numerik, sehingga dapat disimpulkan tidak terdapat missing value. Nilai rata-rata (mean) menunjukkan bahwa panjang sepal bunga iris adalah 5.84 cm, lebar sepal 3.05 cm, panjang petal 3.76 cm, dan lebar petal 1.20 cm. Standar deviasi tertinggi terdapat pada atribut petal length sebesar 1.76, yang menunjukkan bahwa variasi panjang petal lebih besar dibandingkan atribut lainnya. Nilai minimum dan maksimum menunjukkan rentang data yang masih dalam batas wajar, yaitu sepal length antara 4.3 hingga 7.9 cm dan petal width antara 0.1 hingga 2.5 cm. Selain itu, nilai kuartil (25%, 50%, dan 75%) menunjukkan distribusi data yang relatif stabil tanpa adanya penyimpangan ekstrem yang signifikan. Secara umum, dataset memiliki distribusi yang baik dan layak digunakan untuk proses analisis dan pemodelan pada tahap selanjutnya.
 
----
+##### - Pengecekan Data Duplikat
 
-### c. Pengecekan Data Duplikat
-
-```python
+```
 df.duplicated().sum()
 ```
+Code di atas merupakan code untuk pengecekan data duplikat, berikut untuk hasil dari pengecekan data duplikat:
 
-Hasil menunjukkan terdapat **3 data duplikat**. Data ini perlu ditangani pada tahap Data Preparation agar tidak memengaruhi model.
+```
+np.int64(3)
+```
+Jadi setelah dilakukan pengecekan, terdapat data duplikat yaitu ada 3 data duplikat.
 
----
+##### - Pengecekan Data Null
 
-### d. Pengecekan Data Null
-
-```python
+```
 df.isnull().sum()
 ```
 
-Hasil menunjukkan seluruh atribut memiliki nilai **0 null**, sehingga tidak terdapat missing value.
+Berikut untuk tampilan hasil dari pengecekan data Null:
 
----
+|||
+|---|---|
+|sepal_length|0|
+|sepal_width|0|
+|petal_length|0|
+|petal_width|0|
+|species|0|
 
-## **4. Verifikasi Data**
 
-Berdasarkan proses verifikasi:
+### 4. Verifikasi Data
 
-* Dataset terdiri dari **150 data**
-* Memiliki **4 atribut numerik** dan **1 atribut kategorikal**
-* Tidak terdapat missing value
-* Ditemukan 3 data duplikat
-* Tipe data sudah sesuai (numerik dan kategorikal)
+Berdasarkan proses verifikasi, dataset Iris terdiri dari 150 data dengan 4 atribut numerik dan 1 atribut kategorikal (species). Hasil pengecekan menunjukkan bahwa seluruh atribut memiliki jumlah data yang sama (count = 150), sehingga dapat disimpulkan tidak terdapat missing value pada dataset. Tipe data juga telah sesuai, di mana atribut sepal length, sepal width, petal length, dan petal width bertipe numerik, sedangkan species bertipe kategorikal. Berdasarkan hasil pengecekan menggunakan Pandas, ditemukan sebanyak 3 data duplikat pada dataset. Keberadaan data duplikat ini tidak menunjukkan kesalahan pada dataset, namun perlu ditangani pada tahap data preparation agar tidak memengaruhi proses pemodelan. 
 
-Dataset dinyatakan layak untuk tahap pemodelan setelah penanganan duplikat.
+### 5. Visualisasi Data
 
----
+##### - Distribusi Jumlah Data per Species
 
-## **5. Visualisasi Data**
+![original image](https://cdn.mathpix.com/snip/images/Gt4lANFXJ1tvApce6vXv0vo4hu08VXJb7_bTkbfgn-M.original.fullsize.png)
 
-### a. Distribusi Jumlah Data per Species
+  Grafik bar digunakan untuk melihat jumlah data pada setiap species. Berdasarkan grafik, diketahui bahwa setiap species yaitu Iris-setosa, Iris-versicolor, dan Iris-virginica masing-masing memiliki 50 data. Hal ini menunjukkan bahwa dataset dalam kondisi seimbang (balanced dataset), sehingga tidak terdapat ketimpangan jumlah data antar kelas. Kondisi ini sangat baik untuk proses modeling karena dapat membantu menghasilkan model klasifikasi yang lebih akurat dan tidak bias terhadap kelas tertentu.
 
-Grafik menunjukkan setiap spesies memiliki **50 data**, sehingga dataset bersifat **balanced**. Kondisi ini sangat baik untuk proses klasifikasi karena mencegah bias terhadap kelas tertentu.
+##### - Distribusi Data Fitur Numerik pada Dataset Iris
 
----
+![original image](https://cdn.mathpix.com/snip/images/6u595jYczu5oHxd1yDMvEGkfvzQYsyvFrhOICQnLnGY.original.fullsize.png)
 
-### b. Distribusi Fitur Numerik (Histogram)
 
-Histogram menunjukkan bahwa:
+Berdasarkan histogram, dapat disimpulkan bahwa seluruh fitur numerik memiliki distribusi yang bervariasi dan tidak terdapat anomali yang ekstrem. Fitur petal_length dan petal_width menunjukkan pola distribusi yang lebih jelas dalam membedakan kelompok data, sehingga kedua fitur ini sangat berpotensi menjadi fitur penting dalam proses klasifikasi pada tahap modeling. Visualisasi ini membantu dalam memahami karakteristik dan penyebaran data pada tahap Data Understanding dalam metodologi CRISP-DM.
 
-* Seluruh fitur memiliki distribusi yang bervariasi.
-* **Petal length** dan **petal width** menunjukkan pola yang lebih jelas dalam membedakan spesies.
-* Tidak ditemukan anomali ekstrem.
+##### - Analisis Penyebaran Data dan Deteksi Outlier Menggunakan Boxplot
 
-Fitur petal berpotensi menjadi fitur utama dalam proses klasifikasi.
+![original image](https://cdn.mathpix.com/snip/images/YfGQj5-WjGnpPQF6mWpdtoRSXTPrJIw5sXZ6l769Xo0.original.fullsize.png)
 
----
+Berdasarkan boxplot, dapat disimpulkan bahwa setiap fitur memiliki penyebaran data yang berbeda. Fitur sepal_width menunjukkan adanya beberapa outlier, sedangkan fitur lainnya memiliki distribusi yang relatif normal tanpa outlier yang signifikan. Fitur petal_length dan petal_width memiliki variasi data yang cukup besar, sehingga berpotensi menjadi fitur penting dalam membedakan species pada tahap modeling. Visualisasi boxplot ini membantu dalam memahami distribusi data dan mendeteksi outlier pada tahap Data Understanding dalam metodologi CRISP-DM.
 
-### c. Deteksi Outlier (Boxplot)
+#### - Analisa Korelasi
 
-Boxplot menunjukkan:
+- Analisis korelasi sepal length dan sepal width:
 
-* Terdapat beberapa outlier pada **sepal width**.
-* Fitur lain relatif stabil.
-* Variasi terbesar terlihat pada fitur petal.
+![original image](https://cdn.mathpix.com/snip/images/sRKmyd2sVULbo8caUWfLT9eqt_lCk_W0yBKY_EifcEA.original.fullsize.png)
 
----
 
-### d. Analisis Korelasi
+Analisis korelasi juga dilakukan pada atribut sepal length dan sepal width menggunakan scatter plot dengan bantuan Python. Berdasarkan hasil visualisasi, terlihat bahwa sebaran data tidak membentuk pola yang jelas, yang menunjukkan bahwa hubungan antara kedua atribut tersebut relatif lemah dibandingkan dengan atribut pada bagian petal.
 
-#### Korelasi Sepal Length dan Sepal Width
+- Analisis korelasi petal length dan petal width
 
-Scatter plot menunjukkan hubungan yang relatif lemah karena titik data tersebar tanpa pola yang jelas.
+![original image](https://cdn.mathpix.com/snip/images/8bCKkvYBfRcBPq1RZkXrOMc8sxvl-fqDQ-RhbE9lwRo.original.fullsize.png)
 
-#### Korelasi Petal Length dan Petal Width
+Analisis korelasi dilakukan secara visual menggunakan scatter plot dengan bantuan bahasa pemrograman Python. Scatter plot digunakan untuk melihat hubungan antara atribut petal length dan petal width. Berdasarkan hasil visualisasi, terlihat bahwa titik-titik data membentuk pola yang jelas, yang menunjukkan adanya hubungan atau korelasi yang kuat antara kedua atribut tersebut.
 
-Scatter plot menunjukkan pola linear positif yang jelas, menandakan korelasi yang kuat antara kedua atribut. Hal ini menunjukkan bahwa fitur petal sangat relevan untuk klasifikasi.
 
----
+### Eksplorasi Dataset dengan menggunakan Aplikasi Orange:
 
-# **Eksplorasi Dataset Menggunakan Orange**
+##### - Statistik Deskriptif 
 
-Selain Python, analisis juga dilakukan menggunakan aplikasi **Orange Data Mining**.
+Statistik deskriptif digunakan untuk memahami karakteristik dasar dataset Iris Flower. Analisis ini dilakukan menggunakan Column Statistics pada aplikasi Orange Data Mining. Hasil statistik deskriptif menunjukkan nilai minimum, maksimum, rata-rata, dan standar deviasi dari setiap atribut, sehingga memberikan gambaran umum mengenai sebaran dan variasi data.
 
-### a. Statistik Deskriptif
+Berikut contoh statistik deskriptifnya:
 
-Melalui widget *Column Statistics*, diperoleh nilai minimum, maksimum, rata-rata, dan standar deviasi yang konsisten dengan hasil analisis Python.
+![original image](https://cdn.mathpix.com/snip/images/1QfYry6Ge2WhH-6mPvVdIRTrstVxnt-bPx3SCKn8EtY.original.fullsize.png)
 
-### b. Analisis Korelasi
+##### - Analisa kolerasi
 
-Melalui widget *Scatter Plot*, terlihat bahwa:
+Analisis korelasi antar atribut dilakukan secara visual menggunakan widget Scatter Plot pada aplikasi Orange Data Mining. Scatter Plot digunakan untuk melihat hubungan antara dua atribut numerik berdasarkan pola sebaran data. Berdasarkan hasil visualisasi, terlihat bahwa beberapa atribut, khususnya pada bagian petal, memiliki hubungan yang kuat, sedangkan atribut lainnya menunjukkan hubungan yang lebih lemah. Analisis ini membantu dalam memahami keterkaitan antar atribut sebelum masuk ke tahap pemodelan.
 
-* Atribut petal memiliki korelasi kuat.
-* Atribut sepal memiliki korelasi lebih lemah.
+##### Berikut contoh Analisa Kolerasinya:
 
-Hasil ini memperkuat temuan bahwa fitur petal lebih signifikan dalam membedakan spesies.
+- Analisis korelasi sepal length dan sepal width:
 
----
+![original image](https://cdn.mathpix.com/snip/images/iaM0IQD8x8ELhZrhLL7d07iobX8siwpqS55Ud7nF7uA.original.fullsize.png)
 
-# **Kesimpulan Tahap Data Understanding**
 
-1. Dataset bersih (tanpa missing value).
-2. Dataset seimbang (50 data per kelas).
-3. Terdapat 3 data duplikat.
-4. Fitur **petal length** dan **petal width** memiliki korelasi kuat dan berpotensi menjadi fitur utama dalam klasifikasi.
+Berdasarkan hasil visualisasi scatter plot antara sepal length dan sepal width, terlihat bahwa titik-titik data tersebar secara acak dan tidak membentuk pola linear yang jelas. Hal ini menunjukkan bahwa hubungan antara kedua atribut tersebut relatif lemah. Dengan kata lain, perubahan nilai sepal length tidak secara konsisten diikuti oleh perubahan sepal width.
 
+- Analisis korelasi petal length dan petal width
+
+![original image](https://cdn.mathpix.com/snip/images/iT4Xj8fRcAwT4AI_oDVDJKNmDaNI3cv0BFxkJoB2VBw.original.fullsize.png)
+
+Berbeda dengan atribut sepal, scatter plot antara petal length dan petal width menunjukkan pola sebaran yang lebih teratur dan cenderung membentuk hubungan linear positif. Titik-titik data terlihat mengikuti arah tertentu, yang menandakan adanya korelasi yang kuat antara kedua atribut petal tersebut.
