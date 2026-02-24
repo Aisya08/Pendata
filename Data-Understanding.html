@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data-Understanding &#8212; My sample book</title>
+    <title>Data Understanding &#8212; My sample book</title>
   
   
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Data-Understanding';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data-Preparation" href="Data-Preparation.html" />
+    <link rel="next" title="Data Preparation" href="Data-Preparation.html" />
     <link rel="prev" title="Bussiness-Understanding" href="Bussiness-Understanding.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -181,8 +181,11 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Bussiness-Understanding.html">Bussiness-Understanding</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data-Understanding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Data-Preparation.html">Data-Preparation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Data Understanding</strong></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Data-Preparation.html"><strong>Data Preparation</strong></a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Modelling.html">Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
 </ul>
@@ -357,7 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -368,11 +373,49 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data-Understanding</h1>
+    <h1>Data Understanding</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Data Understanding</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data"><strong>1. Sumber Data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-dataset"><strong>2. Deskripsi Dataset</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset-menggunakan-python"><strong>3. Eksplorasi Dataset Menggunakan Python</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-struktur-dataset">a. Struktur Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-statistik-deskriptif">b. Statistik Deskriptif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-pengecekan-data-duplikat">c. Pengecekan Data Duplikat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-pengecekan-data-null">d. Pengecekan Data Null</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-data"><strong>4. Verifikasi Data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data"><strong>5. Visualisasi Data</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-distribusi-jumlah-data-per-species">a. Distribusi Jumlah Data per Species</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-distribusi-fitur-numerik-histogram">b. Distribusi Fitur Numerik (Histogram)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-deteksi-outlier-boxplot">c. Deteksi Outlier (Boxplot)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-analisis-korelasi">d. Analisis Korelasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-sepal-length-dan-sepal-width">Korelasi Sepal Length dan Sepal Width</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-petal-length-dan-petal-width">Korelasi Petal Length dan Petal Width</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset-menggunakan-orange"><strong>Eksplorasi Dataset Menggunakan Orange</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-statistik-deskriptif">a. Statistik Deskriptif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-analisis-korelasi">b. Analisis Korelasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-tahap-data-understanding"><strong>Kesimpulan Tahap Data Understanding</strong></a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -383,7 +426,166 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
-<h1>Data-Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
+<h1><strong>Data Understanding</strong><a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
+<section id="sumber-data">
+<h2><strong>1. Sumber Data</strong><a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h2>
+<p>Dataset yang digunakan adalah <strong>Iris Flower Dataset</strong> yang diperoleh dari platform Kaggle. Dataset ini merupakan dataset klasik dalam bidang data mining dan machine learning yang sering digunakan sebagai studi kasus klasifikasi.</p>
+<p>Dataset dapat diakses melalui:
+<a class="reference external" href="https://www.kaggle.com/datasets/arshid/iris-flower-dataset">https://www.kaggle.com/datasets/arshid/iris-flower-dataset</a></p>
+<p>Dataset ini berisi data pengukuran bunga iris dari tiga spesies:</p>
+<ul class="simple">
+<li><p><em>Iris-setosa</em></p></li>
+<li><p><em>Iris-versicolor</em></p></li>
+<li><p><em>Iris-virginica</em></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="deskripsi-dataset">
+<h2><strong>2. Deskripsi Dataset</strong><a class="headerlink" href="#deskripsi-dataset" title="Link to this heading">#</a></h2>
+<p>Dataset terdiri dari <strong>150 data</strong> dengan <strong>5 atribut</strong>, yaitu:</p>
+<ol class="arabic simple">
+<li><p><strong>Sepal Length (cm)</strong> – panjang kelopak luar (numerik)</p></li>
+<li><p><strong>Sepal Width (cm)</strong> – lebar kelopak luar (numerik)</p></li>
+<li><p><strong>Petal Length (cm)</strong> – panjang mahkota bunga (numerik)</p></li>
+<li><p><strong>Petal Width (cm)</strong> – lebar mahkota bunga (numerik)</p></li>
+<li><p><strong>Species</strong> – jenis bunga (kategorikal)</p></li>
+</ol>
+<p>Dataset ini digunakan untuk mengklasifikasikan spesies bunga iris berdasarkan ukuran morfologinya.</p>
+</section>
+<hr class="docutils" />
+<section id="eksplorasi-dataset-menggunakan-python">
+<h2><strong>3. Eksplorasi Dataset Menggunakan Python</strong><a class="headerlink" href="#eksplorasi-dataset-menggunakan-python" title="Link to this heading">#</a></h2>
+<section id="a-struktur-dataset">
+<h3>a. Struktur Dataset<a class="headerlink" href="#a-struktur-dataset" title="Link to this heading">#</a></h3>
+<p>Dataset dibaca menggunakan library <strong>Pandas</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;IRIS.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Hasil menunjukkan dataset memiliki 150 baris dan 5 kolom.</p>
+</section>
+<hr class="docutils" />
+<section id="b-statistik-deskriptif">
+<h3>b. Statistik Deskriptif<a class="headerlink" href="#b-statistik-deskriptif" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Hasil statistik deskriptif menunjukkan:</p>
+<ul class="simple">
+<li><p>Seluruh atribut numerik memiliki jumlah data <strong>150</strong>, sehingga tidak terdapat missing value.</p></li>
+<li><p>Rata-rata:</p>
+<ul>
+<li><p>Sepal length: 5.84 cm</p></li>
+<li><p>Sepal width: 3.05 cm</p></li>
+<li><p>Petal length: 3.76 cm</p></li>
+<li><p>Petal width: 1.20 cm</p></li>
+</ul>
+</li>
+<li><p>Standar deviasi terbesar terdapat pada <strong>petal length (1.76)</strong>, menunjukkan variasi yang lebih tinggi dibanding atribut lain.</p></li>
+<li><p>Rentang data masih dalam batas wajar tanpa penyimpangan ekstrem.</p></li>
+</ul>
+<p>Secara umum, dataset memiliki distribusi yang baik dan layak digunakan untuk proses pemodelan.</p>
+</section>
+<hr class="docutils" />
+<section id="c-pengecekan-data-duplikat">
+<h3>c. Pengecekan Data Duplikat<a class="headerlink" href="#c-pengecekan-data-duplikat" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Hasil menunjukkan terdapat <strong>3 data duplikat</strong>. Data ini perlu ditangani pada tahap Data Preparation agar tidak memengaruhi model.</p>
+</section>
+<hr class="docutils" />
+<section id="d-pengecekan-data-null">
+<h3>d. Pengecekan Data Null<a class="headerlink" href="#d-pengecekan-data-null" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Hasil menunjukkan seluruh atribut memiliki nilai <strong>0 null</strong>, sehingga tidak terdapat missing value.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="verifikasi-data">
+<h2><strong>4. Verifikasi Data</strong><a class="headerlink" href="#verifikasi-data" title="Link to this heading">#</a></h2>
+<p>Berdasarkan proses verifikasi:</p>
+<ul class="simple">
+<li><p>Dataset terdiri dari <strong>150 data</strong></p></li>
+<li><p>Memiliki <strong>4 atribut numerik</strong> dan <strong>1 atribut kategorikal</strong></p></li>
+<li><p>Tidak terdapat missing value</p></li>
+<li><p>Ditemukan 3 data duplikat</p></li>
+<li><p>Tipe data sudah sesuai (numerik dan kategorikal)</p></li>
+</ul>
+<p>Dataset dinyatakan layak untuk tahap pemodelan setelah penanganan duplikat.</p>
+</section>
+<hr class="docutils" />
+<section id="visualisasi-data">
+<h2><strong>5. Visualisasi Data</strong><a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h2>
+<section id="a-distribusi-jumlah-data-per-species">
+<h3>a. Distribusi Jumlah Data per Species<a class="headerlink" href="#a-distribusi-jumlah-data-per-species" title="Link to this heading">#</a></h3>
+<p>Grafik menunjukkan setiap spesies memiliki <strong>50 data</strong>, sehingga dataset bersifat <strong>balanced</strong>. Kondisi ini sangat baik untuk proses klasifikasi karena mencegah bias terhadap kelas tertentu.</p>
+</section>
+<hr class="docutils" />
+<section id="b-distribusi-fitur-numerik-histogram">
+<h3>b. Distribusi Fitur Numerik (Histogram)<a class="headerlink" href="#b-distribusi-fitur-numerik-histogram" title="Link to this heading">#</a></h3>
+<p>Histogram menunjukkan bahwa:</p>
+<ul class="simple">
+<li><p>Seluruh fitur memiliki distribusi yang bervariasi.</p></li>
+<li><p><strong>Petal length</strong> dan <strong>petal width</strong> menunjukkan pola yang lebih jelas dalam membedakan spesies.</p></li>
+<li><p>Tidak ditemukan anomali ekstrem.</p></li>
+</ul>
+<p>Fitur petal berpotensi menjadi fitur utama dalam proses klasifikasi.</p>
+</section>
+<hr class="docutils" />
+<section id="c-deteksi-outlier-boxplot">
+<h3>c. Deteksi Outlier (Boxplot)<a class="headerlink" href="#c-deteksi-outlier-boxplot" title="Link to this heading">#</a></h3>
+<p>Boxplot menunjukkan:</p>
+<ul class="simple">
+<li><p>Terdapat beberapa outlier pada <strong>sepal width</strong>.</p></li>
+<li><p>Fitur lain relatif stabil.</p></li>
+<li><p>Variasi terbesar terlihat pada fitur petal.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="d-analisis-korelasi">
+<h3>d. Analisis Korelasi<a class="headerlink" href="#d-analisis-korelasi" title="Link to this heading">#</a></h3>
+<section id="korelasi-sepal-length-dan-sepal-width">
+<h4>Korelasi Sepal Length dan Sepal Width<a class="headerlink" href="#korelasi-sepal-length-dan-sepal-width" title="Link to this heading">#</a></h4>
+<p>Scatter plot menunjukkan hubungan yang relatif lemah karena titik data tersebar tanpa pola yang jelas.</p>
+</section>
+<section id="korelasi-petal-length-dan-petal-width">
+<h4>Korelasi Petal Length dan Petal Width<a class="headerlink" href="#korelasi-petal-length-dan-petal-width" title="Link to this heading">#</a></h4>
+<p>Scatter plot menunjukkan pola linear positif yang jelas, menandakan korelasi yang kuat antara kedua atribut. Hal ini menunjukkan bahwa fitur petal sangat relevan untuk klasifikasi.</p>
+</section>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-dataset-menggunakan-orange">
+<h1><strong>Eksplorasi Dataset Menggunakan Orange</strong><a class="headerlink" href="#eksplorasi-dataset-menggunakan-orange" title="Link to this heading">#</a></h1>
+<p>Selain Python, analisis juga dilakukan menggunakan aplikasi <strong>Orange Data Mining</strong>.</p>
+<section id="a-statistik-deskriptif">
+<h2>a. Statistik Deskriptif<a class="headerlink" href="#a-statistik-deskriptif" title="Link to this heading">#</a></h2>
+<p>Melalui widget <em>Column Statistics</em>, diperoleh nilai minimum, maksimum, rata-rata, dan standar deviasi yang konsisten dengan hasil analisis Python.</p>
+</section>
+<section id="b-analisis-korelasi">
+<h2>b. Analisis Korelasi<a class="headerlink" href="#b-analisis-korelasi" title="Link to this heading">#</a></h2>
+<p>Melalui widget <em>Scatter Plot</em>, terlihat bahwa:</p>
+<ul class="simple">
+<li><p>Atribut petal memiliki korelasi kuat.</p></li>
+<li><p>Atribut sepal memiliki korelasi lebih lemah.</p></li>
+</ul>
+<p>Hasil ini memperkuat temuan bahwa fitur petal lebih signifikan dalam membedakan spesies.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan-tahap-data-understanding">
+<h1><strong>Kesimpulan Tahap Data Understanding</strong><a class="headerlink" href="#kesimpulan-tahap-data-understanding" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Dataset bersih (tanpa missing value).</p></li>
+<li><p>Dataset seimbang (50 data per kelas).</p></li>
+<li><p>Terdapat 3 data duplikat.</p></li>
+<li><p>Fitur <strong>petal length</strong> dan <strong>petal width</strong> memiliki korelasi kuat dan berpotensi menjadi fitur utama dalam klasifikasi.</p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -430,7 +632,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data-Preparation</p>
+        <p class="prev-next-title"><strong>Data Preparation</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -440,6 +642,51 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Data Understanding</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data"><strong>1. Sumber Data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-dataset"><strong>2. Deskripsi Dataset</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset-menggunakan-python"><strong>3. Eksplorasi Dataset Menggunakan Python</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-struktur-dataset">a. Struktur Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-statistik-deskriptif">b. Statistik Deskriptif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-pengecekan-data-duplikat">c. Pengecekan Data Duplikat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-pengecekan-data-null">d. Pengecekan Data Null</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-data"><strong>4. Verifikasi Data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data"><strong>5. Visualisasi Data</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-distribusi-jumlah-data-per-species">a. Distribusi Jumlah Data per Species</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-distribusi-fitur-numerik-histogram">b. Distribusi Fitur Numerik (Histogram)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-deteksi-outlier-boxplot">c. Deteksi Outlier (Boxplot)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-analisis-korelasi">d. Analisis Korelasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-sepal-length-dan-sepal-width">Korelasi Sepal Length dan Sepal Width</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-petal-length-dan-petal-width">Korelasi Petal Length dan Petal Width</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-dataset-menggunakan-orange"><strong>Eksplorasi Dataset Menggunakan Orange</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-statistik-deskriptif">a. Statistik Deskriptif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-analisis-korelasi">b. Analisis Korelasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-tahap-data-understanding"><strong>Kesimpulan Tahap Data Understanding</strong></a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
