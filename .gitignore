@@ -35,3 +35,4 @@ Materi/_build/
 # Keep git tracking of modified Materi files
 !Materi/
 !Materi/**
+Materi/_build/html/
