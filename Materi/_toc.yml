@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: Bussiness-Understanding
+- file: Data-Understanding
+- file: Data-Preparation
+- file: Pertemuan-3-Data-Preparation
+  title: "Pertemuan 3: Data Preparation (Mixed-Type & Distance)"
+- file: Modelling
+- file: Deployment

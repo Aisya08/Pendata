@@ -1,0 +1,53 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Penambangan Data - Materi Pertemuan 1-3
+author: "Aisya (NIM: 240411100025)"
+logo: Aisya.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/Aisya-2024/Pendata  # Online location of your book
+  path_to_book: Materi  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_button: true
+  home_page_in_navbar: true
+  navbar_number_buttons: 3
+  
+# Build settings
+parse:
+  myst_extensions:
+    - html
+    - dollarmath
+    - linkify
+    - substitution
+    - deflist
+    - colon_fence
+    - smartquotes
+    - replacements
+    
+# Sphinx build options
+sphinx:
+  config:
+    nb_execution_timeout: 300
+    myst_table_classes: table table-striped
