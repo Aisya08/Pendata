@@ -9,5 +9,7 @@ chapters:
 - file: Data-Preparation
 - file: Pertemuan-3-Data-Preparation
   title: "Pertemuan 3: Data Preparation (Mixed-Type & Distance)"
+- file: Pertemuan3_KNN_Imputation
+  title: "Pertemuan 3: KNN Imputation (Notebook)"
 - file: Modelling
 - file: Deployment

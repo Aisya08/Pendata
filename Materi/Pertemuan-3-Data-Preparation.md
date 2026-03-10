@@ -36,6 +36,8 @@ Berikut tiga tugas utama pada Pertemuan 3 beserta status penyelesaiannya:
 > **File CSV Data:** {download}`penguins_lter.csv <DataCampuranPertemuan3/Penguins/penguins_lter.csv>`
 >
 > **File SQL Database:** {download}`Penguins.sql <DataCampuranPertemuan3/Penguins/Penguins.sql>`
+>
+> **Notebook KNN Imputation (Google Colab):** [Pertemuan3_KNN_Imputation.ipynb](Pertemuan3_KNN_Imputation.ipynb)
 
 ---
 
@@ -177,6 +179,26 @@ Orange dapat mengambil data langsung dari database relasional melalui widget **S
 | **User** | `postgres` |
 | **Password** | *(sesuai konfigurasi Anda)* |
 
+### 3.12.3 Bukti Data CSV ke PostgreSQL
+
+Data Iris telah berhasil dimasukkan ke PostgreSQL. Berikut bukti tampilan data di pgAdmin:
+
+![Bukti Data CSV Telah Dimasukkan ke PostgreSQL](Pertemuan3/Gambar Csv ke PostgreeSQL.png)
+
+> **Gambar:** Tampilan pgAdmin/psql menunjukkan data Iris berhasil di-import ke tabel PostgreSQL. Query `SELECT * FROM public.iris` mengembalikan 150 baris data lengkap.
+
+### 3.12.4 Histogram Fitur Sebelum dan Sesudah Scaling
+
+Sebelum menghitung jarak, fitur numerik harus di-**scaling** agar skala antar kolom setara. Berikut perbandingan distribusi fitur Iris sebelum dan sesudah StandardScaler:
+
+![Histogram Fitur Iris — Sebelum Scaling](Pertemuan3/SebelumScalling.png)
+
+> **Gambar:** Distribusi fitur Iris sebelum scaling — perhatikan skala yang berbeda-beda antar kolom (`petal_length` range 1–7, `sepal_width` range 2–4).
+
+![Histogram Fitur Iris — Sesudah Scaling (StandardScaler)](Pertemuan3/SesudahScalling.png)
+
+> **Gambar:** Distribusi fitur Iris sesudah StandardScaler — semua fitur dinormalisasi dengan mean ≈ 0 dan std ≈ 1, sehingga skala setara untuk perhitungan jarak.
+
 ---
 
 ## 3.13 Pengukuran Jarak (Distance Metrics) — Iris Dataset
@@ -264,7 +286,81 @@ Hamming Distance (untuk fitur kategorikal): 0 (semua numeric)
 
 ---
 
+## 3.14b KNN Imputation — Dataset Iris (Data Numerik)
+
+```{admonition} Apa itu KNN Imputation?
+:class: tip
+
+**KNN Imputation** adalah teknik pengisian missing value berdasarkan nilai dari **k tetangga terdekat**. Jarak dihitung hanya dari kolom yang **tidak memiliki missing value**, kemudian missing value diisi dengan **rata-rata** (numerik) atau **modus** (kategorikal) dari k tetangga.
+```
+
+### 3.14b.1 Membuat Missing Value Buatan pada Iris
+
+Dataset Iris **tidak memiliki missing value** secara asli. Untuk demonstrasi KNN Imputation, dibuat missing value buatan pada **baris 5, kolom `petal_width`**.
+
+| Baris | sepal_length | sepal_width | petal_length | petal_width | species |
+|:-----:|:---:|:---:|:---:|:---:|:---:|
+| **5** | 5.4 | 3.9 | 1.7 | **NaN** *(dihapus)* | Iris-setosa |
+
+Nilai asli `petal_width` baris 5 = **0.4** — ini akan digunakan untuk memvalidasi hasil imputasi.
+
+![Missing Value Buatan pada Iris Baris 5](Pertemuan3/iris missing value buatan.png)
+
+> **Gambar:** Tabel menunjukkan baris 5 dataset Iris dengan `petal_width` = NaN (missing value buatan untuk simulasi KNN Imputation).
+
+### 3.14b.2 Perhitungan Jarak dan Pencarian Tetangga Terdekat
+
+**Rumus Euclidean Distance:**
+
+$$d(i,j) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 - y_3)^2}$$
+
+Karena `petal_width` kosong, jarak Euclidean dihitung dari **3 kolom saja**: `sepal_length`, `sepal_width`, `petal_length`.
+
+**Contoh perhitungan manual — Baris 5 vs Baris 0:**
+
+$$d(5,0) = \sqrt{(5.4-5.1)^2 + (3.9-3.5)^2 + (1.7-1.4)^2} = \sqrt{0.09 + 0.16 + 0.09} = \sqrt{0.34} \approx 0.5831$$
+
+Setelah menghitung jarak ke **semua 149 baris lainnya**, diambil **k=3 tetangga terdekat**:
+
+![10 Jarak Terkecil Dataset Iris — 3 Tetangga Terpilih (Hijau)](Pertemuan3/iris 10 jarak terkecil.png)
+
+> **Gambar:** Tabel 10 jarak terkecil dari baris 5 ke baris-baris lain. Tiga baris teratas (hijau) adalah tetangga terdekat yang akan digunakan untuk imputasi.
+
+### 3.14b.3 Hasil Imputasi KNN pada Iris
+
+Nilai imputasi dihitung sebagai **rata-rata `petal_width`** dari 3 tetangga terdekat:
+
+$$\hat{y} = \frac{pw_1 + pw_2 + pw_3}{3}$$
+
+![Hasil Imputasi KNN — Baris 5 Iris](Pertemuan3/iris baris 5 setelah imputasi KKN.png)
+
+> **Gambar:** Baris 5 setelah KNN Imputation — kolom `petal_width` yang sebelumnya NaN kini terisi dengan nilai rata-rata dari 3 tetangga terdekat.
+
+```{admonition} Validasi Hasil
+:class: note
+
+Nilai asli `petal_width` baris 5 = **0.4**. Hasil imputasi KNN mendekati nilai asli ini, menunjukkan bahwa KNN Imputation cukup akurat untuk data numerik murni seperti Iris.
+```
+
+---
+
 ## 3.15 Data Campuran (Mixed-Type) — Palmer Penguins
+
+```{admonition} 📓 Notebook KNN Imputation
+:class: tip
+
+Untuk implementasi **KNN Imputation** secara lengkap (kode + output interaktif) pada dataset Iris dan Palmer Penguins, lihat notebook:
+
+**[Pertemuan3_KNN_Imputation.ipynb](Pertemuan3_KNN_Imputation.ipynb)**
+
+Notebook tersebut dapat dijalankan langsung di **Google Colab** dan berisi:
+- Upload file & tampilkan gambar bukti dari Orange/PostgreSQL
+- KNN Imputation Iris: perhitungan manual + kode + visualisasi
+- KNN Imputation Palmer Penguins (mixed-type): normalisasi Min-Max, jarak kategorikal, jarak total
+- Tabel jarak dan hasil imputasi
+
+Screenshot bukti dari notebook yang sudah dijalankan tersedia di **Section 3.14b** (Iris) dan **Section 3.15.8–3.15.9** (Penguins) di bawah.
+```
 
 ### 3.15.1 Profil Dataset Palmer Penguins
 
@@ -534,6 +630,104 @@ Kemudian hasil dari setiap metrik dapat digabungkan dengan rata-rata atau weight
 
 ---
 
+### 3.15.8 Identifikasi Missing Value — Palmer Penguins
+
+Berbeda dengan Iris, dataset Palmer Penguins **memiliki missing value nyata** pada beberapa kolom:
+
+| Kolom dengan Missing Value | Jumlah Missing | Keterangan |
+|---|:---:|---|
+| `Sex` | 11 | Jenis kelamin tidak teridentifikasi |
+| `Delta 15 N (o/oo)` | 14 | Isotop nitrogen tidak terukur |
+| `Delta 13 C (o/oo)` | 13 | Isotop karbon tidak terukur |
+| `Culmen Length (mm)` | 2 | Pengukuran paruh tidak tercatat |
+| `Culmen Depth (mm)` | 2 | Pengukuran paruh tidak tercatat |
+| `Flipper Length (mm)` | 2 | Pengukuran sirip tidak tercatat |
+| `Body Mass (g)` | 2 | Massa tubuh tidak tercatat |
+| `Comments` | banyak | Kolom opsional |
+
+![Jumlah Missing Value per Kolom — Palmer Penguins](Pertemuan3/jumlah missing value peungins.png)
+
+> **Gambar:** Grafik batang menunjukkan jumlah missing value per kolom pada dataset Palmer Penguins (344 baris). Kolom isotop (`Delta 15 N`, `Delta 13 C`) dan `Sex` memiliki missing value terbanyak.
+
+```{admonition} Missing Value Nyata vs Buatan
+:class: warning
+
+Pada Iris, kita **membuat** missing value buatan untuk simulasi. Pada Palmer Penguins, missing value sudah **ada secara alami** di data asli. Namun untuk demonstrasi KNN Imputation yang terkontrol, kita tetap membuat missing value buatan pada **kolom `Body Mass (g)` baris 5** setelah membersihkan baris-baris yang sudah memiliki missing.
+```
+
+### 3.15.9 KNN Imputation — Palmer Penguins (Data Campuran)
+
+#### Perbedaan dengan Iris
+
+KNN Imputation pada **data campuran** memerlukan penanganan khusus karena tipe kolom berbeda-beda:
+
+| Aspek | Iris (Numerik Murni) | Palmer Penguins (Campuran) |
+|-------|---------------------|---------------------------|
+| **Tipe data** | Semua numerik | Numerik + Kategorikal |
+| **Normalisasi** | Tidak wajib (skala mirip) | **Wajib** Min-Max pada numerik |
+| **Jarak numerik** | Euclidean langsung | Euclidean **setelah normalisasi** |
+| **Jarak kategorikal** | Tidak ada | $(P-M)/P$ |
+| **Jarak total** | $d_{euclidean}$ saja | $d_{num} + d_{kat}$ |
+
+#### Langkah Perhitungan
+
+**1. Normalisasi Min-Max pada kolom numerik:**
+
+$$x' = \frac{x - x_{min}}{x_{max} - x_{min}}$$
+
+Kolom yang dinormalisasi: `Culmen Length (mm)`, `Culmen Depth (mm)`, `Flipper Length (mm)`.
+Kolom `Body Mass (g)` **tidak diikutkan** karena merupakan kolom target (missing).
+
+**2. Hitung jarak numerik (Euclidean setelah normalisasi):**
+
+$$d_{num} = \sqrt{\sum_{i \in \text{numerik}} (x'_i - y'_i)^2}$$
+
+**3. Hitung jarak kategorikal:**
+
+$$d_{kat} = \frac{P - M}{P}$$
+
+- $P$ = jumlah kolom kategorikal (3: `Island`, `Sex`, `Clutch Completion`)
+- $M$ = jumlah kolom yang nilainya **sama**
+
+**4. Hitung jarak total:**
+
+$$d_{total} = d_{num} + d_{kat}$$
+
+#### Missing Value Buatan pada Body Mass
+
+![Missing Value Body Mass Penguins](Pertemuan3/bodymass peungeins missing value.png)
+
+> **Gambar:** Baris target Palmer Penguins dengan `Body Mass (g)` = NaN (missing value buatan). Kolom lainnya lengkap dan akan digunakan untuk menghitung jarak.
+
+#### 10 Jarak Terkecil dan Tetangga Terdekat
+
+![10 Jarak Terkecil — Palmer Penguins (3 Tetangga Terpilih)](Pertemuan3/jarak terkecil.png)
+
+> **Gambar:** Tabel 10 jarak terkecil (total) pada data campuran Palmer Penguins. Kolom `d_num` adalah jarak numerik (Euclidean ternormalisasi), `d_kat` adalah jarak kategorikal, dan `d_total` = `d_num` + `d_kat`. Tiga baris teratas (hijau) adalah tetangga terdekat.
+
+#### Hasil Imputasi KNN pada Body Mass
+
+Setelah mendapatkan 3 tetangga terdekat, missing value diisi dengan **rata-rata `Body Mass (g)`** dari ketiga tetangga:
+
+$$\hat{y} = \frac{BM_1 + BM_2 + BM_3}{3}$$
+
+![Hasil Imputasi KNN — Body Mass Palmer Penguins](Pertemuan3/setelah implemntas kkn body mass.png)
+
+> **Gambar:** Baris target setelah KNN Imputation — kolom `Body Mass (g)` yang sebelumnya NaN kini terisi dengan rata-rata dari 3 tetangga terdekat.
+
+```{admonition} Perbandingan Hasil Imputasi
+:class: note
+
+| Dataset | Kolom Target | Metode Jarak | Normalisasi | k |
+|---------|-------------|-------------|-------------|:-:|
+| **Iris** | `petal_width` | Euclidean (3 fitur) | Tidak | 3 |
+| **Palmer Penguins** | `Body Mass (g)` | Euclidean + Kategorikal gabungan | Min-Max | 3 |
+
+Pada data campuran, hasil imputasi memperhitungkan **kesamaan kategori** (Island, Sex, Clutch Completion) selain kedekatan numerik — sehingga tetangga yang terpilih benar-benar "mirip" secara keseluruhan.
+```
+
+---
+
 ## 3.16 Menyimpan Dataset Final untuk Modeling
 
 Setelah seluruh proses preparation dan pengukuran jarak selesai, dataset yang sudah di-scale disimpan sebagai file CSV baru untuk tahap Modeling.
@@ -586,6 +780,10 @@ Verifikasi semua komponen output yang harus ada:
 | **10⭐** | **TUGAS 3: Pengukuran Jarak pada Data Campuran di Orange** | ✅ | Section 3.15.5-3.15.6 |
 | 11 | Koneksi SQL PostgreSQL → Orange | ✅ | Section 3.15.4 |
 | 12 | File `.ows`, `.csv`, `.sql` diunduh | ✅ | Section 3.15.6 |
+| **13⭐** | **KNN Imputation — Iris** (missing value buatan, jarak, imputasi) | ✅ | Section 3.14b |
+| **14⭐** | **Missing Value — Palmer Penguins** (identifikasi, grafik) | ✅ | Section 3.15.8 |
+| **15⭐** | **KNN Imputation — Palmer Penguins** (data campuran, normalisasi, jarak gabungan) | ✅ | Section 3.15.9 |
+| 16 | Notebook KNN Imputation (Google Colab) | ✅ | Pertemuan3_KNN_Imputation.ipynb |
 
 > ⭐ = Komponen tugas wajib dinilai Pertemuan 3
 
@@ -614,4 +812,4 @@ Verifikasi semua komponen output yang harus ada:
 
 ---
 
-**Terakhir diperbarui:** March 3, 2026 | Format: Jupyter Book 1.0.0
+**Terakhir diperbarui:** March 11, 2026 | Format: Jupyter Book 1.0.0
