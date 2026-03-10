@@ -1,0 +1,1979 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DATA PREPARATION — PERTEMUAN 3 &#8212; Penambangan Data - Materi Pertemuan 1-3</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Pertemuan-3-Data-Preparation';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pertemuan 3 — Data Preparation &amp; KNN Imputation" href="Pertemuan3_KNN_Imputation.html" />
+    <link rel="prev" title="Data Preparation" href="Data-Preparation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Aisya.png" class="logo__image only-light" alt="Penambangan Data - Materi Pertemuan 1-3 - Home"/>
+    <img src="_static/Aisya.png" class="logo__image only-dark pst-js-only" alt="Penambangan Data - Materi Pertemuan 1-3 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    240411100025 Aisya
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Bussiness-Understanding.html">Bussiness-Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data-Understanding.html">Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data-Preparation.html">Data Preparation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pertemuan 3: Data Preparation (Mixed-Type &amp; Distance)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pertemuan3_KNN_Imputation.html">Pertemuan 3: KNN Imputation (Notebook)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modelling.html">Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Aisya-2024/Pendata" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Aisya-2024/Pendata/issues/new?title=Issue%20on%20page%20%2FPertemuan-3-Data-Preparation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Pertemuan-3-Data-Preparation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DATA PREPARATION — PERTEMUAN 3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#studi-kasus-iris-data-campuran-mixed-type">Studi Kasus: Iris + Data Campuran (Mixed-Type)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-pertemuan-3">✅ Tugas Pertemuan 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-crisp-dm">3.1 Konsep CRISP-DM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-campuran-mixed-type-data-konsep-fundamental">3.2 Data Campuran (Mixed-Type Data): Konsep Fundamental</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-dan-pentingnya">3.2.1 Definisi dan Pentingnya</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tantangan-data-campuran">3.2.2 Tantangan Data Campuran</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-multi-metric-approach">3.2.3 Solusi: Multi-Metric Approach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-lingkungan-untuk-jupyter-notebook">3.3 Persiapan Lingkungan untuk Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-data-preparation-dataset-iris">3.4-3.10 Review: Data Preparation Dataset Iris</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-collecting-data">3.11 Cara Collecting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-menarik-data-dari-postgresql-ke-orange">3.12 Cara Menarik Data dari PostgreSQL ke Orange</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-konfigurasi">3.12.1 Langkah Konfigurasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-parameter-koneksi-postgresql">3.12.2 Contoh Parameter Koneksi PostgreSQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bukti-data-csv-ke-postgresql">3.12.3 Bukti Data CSV ke PostgreSQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-fitur-sebelum-dan-sesudah-scaling">3.12.4 Histogram Fitur Sebelum dan Sesudah Scaling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengukuran-jarak-distance-metrics-iris-dataset">3.13 Pengukuran Jarak (Distance Metrics) — Iris Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrik-jarak-numerik-iris">3.13.1 Metrik Jarak Numerik (Iris)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-di-python-iris-pre-processing">3.13.2 Implementasi di Python (Iris Pre-Processing)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-matrix-di-orange-workflow">3.14 Distance Matrix di Orange (Workflow)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-knn-imputation-dataset-iris-data-numerik">3.14b KNN Imputation — Dataset Iris (Data Numerik)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-1-membuat-missing-value-buatan-pada-iris">3.14b.1 Membuat Missing Value Buatan pada Iris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-2-perhitungan-jarak-dan-pencarian-tetangga-terdekat">3.14b.2 Perhitungan Jarak dan Pencarian Tetangga Terdekat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-3-hasil-imputasi-knn-pada-iris">3.14b.3 Hasil Imputasi KNN pada Iris</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-campuran-mixed-type-palmer-penguins">3.15 Data Campuran (Mixed-Type) — Palmer Penguins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profil-dataset-palmer-penguins">3.15.1 Profil Dataset Palmer Penguins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-tipe-data-per-kolom-mixed-type-breakdown">3.15.2 Identifikasi Tipe Data per Kolom (Mixed-Type Breakdown)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-data-campuran-memerlukan-multi-metric-approach">3.15.3 Mengapa Data Campuran Memerlukan Multi-Metric Approach?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-database-postgresql-ke-orange">3.15.4 Koneksi Database PostgreSQL ke Orange</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-orange-pengukuran-jarak-pada-data-campuran">3.15.5 Workflow Orange — Pengukuran Jarak pada Data Campuran</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-file-pendukung-pertemuan-3">3.15.6 Download File Pendukung Pertemuan 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn-imputation-palmer-penguins-data-campuran">3.15.9 KNN Imputation — Palmer Penguins (Data Campuran)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-dengan-iris">Perbedaan dengan Iris</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-perhitungan">Langkah Perhitungan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-buatan-pada-body-mass">Missing Value Buatan pada Body Mass</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jarak-terkecil-dan-tetangga-terdekat">10 Jarak Terkecil dan Tetangga Terdekat</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-imputasi-knn-pada-body-mass">Hasil Imputasi KNN pada Body Mass</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-dataset-final-untuk-modeling">3.16 Menyimpan Dataset Final untuk Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-output-pertemuan-3">3.17 Checklist Output Pertemuan 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi-bacaan-tambahan">Referensi &amp; Bacaan Tambahan</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-preparation-pertemuan-3">
+<h1>DATA PREPARATION — PERTEMUAN 3<a class="headerlink" href="#data-preparation-pertemuan-3" title="Link to this heading">#</a></h1>
+<section id="studi-kasus-iris-data-campuran-mixed-type">
+<h2>Studi Kasus: Iris + Data Campuran (Mixed-Type)<a class="headerlink" href="#studi-kasus-iris-data-campuran-mixed-type" title="Link to this heading">#</a></h2>
+<div class="note admonition">
+<p class="admonition-title">Identitas Mahasiswa</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Nama</strong></p></td>
+<td><p>Aisya</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>NIM</strong></p></td>
+<td><p>240411100025</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Mata Kuliah</strong></p></td>
+<td><p>Penambangan Data</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Pertemuan</strong></p></td>
+<td><p>3 — Data Preparation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Dokumen ini melanjutkan materi Data Preparation dalam kerangka <strong>CRISP-DM</strong> yang mencakup:
+identifikasi missing value, statistik deskriptif, encoding, scaling, <strong>pengukuran jarak</strong>, dan penanganan <strong>data campuran (mixed-type)</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="tugas-pertemuan-3">
+<h2>✅ Tugas Pertemuan 3<a class="headerlink" href="#tugas-pertemuan-3" title="Link to this heading">#</a></h2>
+<div class="important admonition">
+<p class="admonition-title">Tugas yang Harus Diselesaikan</p>
+<p>Berikut tiga tugas utama pada Pertemuan 3 beserta status penyelesaiannya:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>No</p></th>
+<th class="head"><p>Tugas</p></th>
+<th class="head text-center"><p>Status</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>1</p></td>
+<td><p><strong>Mengukur Jarak</strong> — ditempatkan di bawah bagian <em>Data Understanding</em></p></td>
+<td class="text-center"><p>✅ Selesai</p></td>
+<td><p>Euclidean, Manhattan, Spearman, Hamming pada data Iris (CSV &amp; SQL) — lihat <strong>Section 3.13–3.14</strong></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2</p></td>
+<td><p><strong>Buat/Cari Data Campuran</strong> — mengandung tipe ordinal, numerik, kategorikal, dan biner</p></td>
+<td class="text-center"><p>✅ Selesai</p></td>
+<td><p>Dataset <strong>Palmer Penguins</strong> (<code class="docutils literal notranslate"><span class="pre">penguins_lter.csv</span></code> + PostgreSQL <code class="docutils literal notranslate"><span class="pre">Penguins</span></code>) — lihat <strong>Section 3.15</strong></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>3</p></td>
+<td><p><strong>Lakukan Pengukuran Jarak pada Data Campuran</strong> tersebut</p></td>
+<td class="text-center"><p>✅ Selesai</p></td>
+<td><p>4 metrik jarak diterapkan di Orange pada data Palmer Penguins — lihat <strong>Section 3.15.5</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote>
+<div><p><strong>File Orange Workflow:</strong> <a class="reference download internal" download="" href="_downloads/c625897b506416d5813805309af6d5c2/Penguins.ows"><code class="xref download docutils literal notranslate"><span class="pre">Penguins.ows</span></code></a></p>
+<p><strong>File CSV Data:</strong> <a class="reference download internal" download="" href="_downloads/469a134711851de121d20ec3d50d37d0/penguins_lter.csv"><code class="xref download docutils literal notranslate"><span class="pre">penguins_lter.csv</span></code></a></p>
+<p><strong>File SQL Database:</strong> <a class="reference download internal" download="" href="_downloads/bd11bfbeff5b07139f64feb163188260/Penguins.sql"><code class="xref download docutils literal notranslate"><span class="pre">Penguins.sql</span></code></a></p>
+<p><strong>Notebook KNN Imputation (Google Colab):</strong> <a class="reference internal" href="Pertemuan3_KNN_Imputation.html"><span class="std std-doc">Pertemuan3_KNN_Imputation.ipynb</span></a></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="konsep-crisp-dm">
+<h2>3.1 Konsep CRISP-DM<a class="headerlink" href="#konsep-crisp-dm" title="Link to this heading">#</a></h2>
+<p><strong>CRISP-DM</strong> (Cross-Industry Standard Process for Data Mining) adalah metodologi standar dalam proyek data mining yang terdiri dari 6 fase berurutan:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>No</p></th>
+<th class="head"><p>Fase</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Business Understanding</p></td>
+<td><p>Memahami tujuan bisnis dan kebutuhan analisis</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Data Understanding</p></td>
+<td><p>Eksplorasi awal data, statistik deskriptif</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><strong>Data Preparation</strong></p></td>
+<td><p>Pembersihan, transformasi, seleksi fitur</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Modeling</p></td>
+<td><p>Membangun model machine learning</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Evaluation</p></td>
+<td><p>Mengevaluasi performa model</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Deployment</p></td>
+<td><p>Implementasi model ke sistem nyata</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Pertemuan ini berfokus pada fase <strong>Data Preparation</strong> — fase paling kritis yang memakan 60–70% waktu proyek data mining.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="data-campuran-mixed-type-data-konsep-fundamental">
+<h2>3.2 Data Campuran (Mixed-Type Data): Konsep Fundamental<a class="headerlink" href="#data-campuran-mixed-type-data-konsep-fundamental" title="Link to this heading">#</a></h2>
+<section id="definisi-dan-pentingnya">
+<h3>3.2.1 Definisi dan Pentingnya<a class="headerlink" href="#definisi-dan-pentingnya" title="Link to this heading">#</a></h3>
+<p><strong>Data Campuran (Mixed-Type Data)</strong> adalah dataset yang mengandung <strong>kombinasi dari berbagai tipe data</strong> dalam kolom-kolom yang berbeda. Tipe-tipe ini meliputi:</p>
+<ul class="simple">
+<li><p><strong>Numerik</strong> (Continuous): Nilai real dengan jangkauan kontinu (mis. tinggi badan, temperatur)</p></li>
+<li><p><strong>Ordinal</strong> (Ordered): Kategori dengan urutan intrinsik (mis. tingkat kepuasan: Rendah &lt; Sedang &lt; Tinggi)</p></li>
+<li><p><strong>Nominal</strong> (Categorical): Kategori tanpa urutan (mis. warna, spesies, jenis)</p></li>
+<li><p><strong>Biner</strong> (Binary): Hanya 2 nilai (Ya/Tidak, True/False, Lelaki/Perempuan)</p></li>
+</ul>
+<p>Dalam praktik data mining dunia nyata, <strong>lebih dari 80% dataset adalah mixed-type</strong>. Dataset Iris (pertemuan sebelumnya) terlalu sederhana karena hanya numerik. Palmer Penguins merepresentasikan realitas bisnis yang lebih kompleks.</p>
+</section>
+<section id="tantangan-data-campuran">
+<h3>3.2.2 Tantangan Data Campuran<a class="headerlink" href="#tantangan-data-campuran" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tantangan</p></th>
+<th class="head"><p>Deskripsi</p></th>
+<th class="head"><p>Contoh Dampak</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Ketidaksesuaian Metrik</strong></p></td>
+<td><p>Satu metrik jarak tidak cocok untuk semua tipe data</p></td>
+<td><p>Euclidean distance pada data biner menghasilkan nilai berarti tetapi tidak konsisten</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Skalabilitas Berbeda</strong></p></td>
+<td><p>Numerik (range ribuan) vs Kategorikal (2-3 kategori)</p></td>
+<td><p>Fitur numerik mendominasi perhitungan jarak</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Informasi Hilang</strong></p></td>
+<td><p>Saat di-encode numerik, informasi ordinal/nominal tercampur</p></td>
+<td><p>Year 1, 2, 3 terlihat seperti rentang linear padahal ordinal</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Preprocessing Kompleks</strong></p></td>
+<td><p>Perlu handling berbeda per tipe data</p></td>
+<td><p>Scaling untuk numerik, One-Hot encoding untuk nominal, dll</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="solusi-multi-metric-approach">
+<h3>3.2.3 Solusi: Multi-Metric Approach<a class="headerlink" href="#solusi-multi-metric-approach" title="Link to this heading">#</a></h3>
+<p>Pendekatan yang tepat adalah <strong>menggunakan metrik jarak yang berbeda</strong> untuk setiap tipe data, kemudian menggabungkannya:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Dataset Campuran
+    ├── Fitur Numerik (6) ──[Euclidean/Manhattan]──▶ Distance Numerik
+    ├── Fitur Ordinal (2) ──[Spearman Rank]──▶ Distance Ordinal
+    ├── Fitur Nominal (4) ──[Hamming]──▶ Distance Nominal
+    └── Fitur Biner (2) ──[Hamming/Jaccard]──▶ Distance Biner
+              ↓
+        [Gower Distance atau metrik gabungan lainnya]
+              ↓
+        Distance Matrix Akhir (respects all data types)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="persiapan-lingkungan-untuk-jupyter-notebook">
+<h2>3.3 Persiapan Lingkungan untuk Jupyter Notebook<a class="headerlink" href="#persiapan-lingkungan-untuk-jupyter-notebook" title="Link to this heading">#</a></h2>
+<p>Sebelum memulai analisis, siapkan lingkungan Python dengan library-library yang diperlukan:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">pairwise_distances</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="c1"># Setup matplotlib styling</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library</p></th>
+<th class="head"><p>Versi Min</p></th>
+<th class="head"><p>Fungsi Utama</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></td>
+<td><p>1.0</p></td>
+<td><p>Manipulasi DataFrame, groupby, describe</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></td>
+<td><p>1.18</p></td>
+<td><p>Operasi array, kalkulasi numerik</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
+<td><p>3.1</p></td>
+<td><p>Visualisasi plot dan histogram</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p></td>
+<td><p>0.22</p></td>
+<td><p>StandardScaler, LabelEncoder, pairwise_distances</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></p></td>
+<td><p>0.11</p></td>
+<td><p>Heatmap dan visualisasi statistik</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="review-data-preparation-dataset-iris">
+<h2>3.4-3.10 Review: Data Preparation Dataset Iris<a class="headerlink" href="#review-data-preparation-dataset-iris" title="Link to this heading">#</a></h2>
+<p><em>Catatan: Section 3.4–3.10 mencakup pembersihan data, statistik deskriptif, encoding, scaling pada dataset Iris. Detail lengkapnya ada di file asli <code class="docutils literal notranslate"><span class="pre">pertemuan_3_data_preparation_markdown_saja.md</span></code>. Di sini kami lanjutkan ke section 3.11+ yang mencakup pengukuran jarak dan data campuran.</em></p>
+</section>
+<hr class="docutils" />
+<section id="cara-collecting-data">
+<h2>3.11 Cara Collecting Data<a class="headerlink" href="#cara-collecting-data" title="Link to this heading">#</a></h2>
+<p>Data collecting adalah proses mengumpulkan data <strong>sebelum</strong> preparation dimulai. Kualitas data yang dikumpulkan sangat menentukan kualitas model yang dihasilkan — prinsip <em>“garbage in, garbage out”</em>.</p>
+<p><strong>Sumber Data yang Umum Digunakan:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sumber</p></th>
+<th class="head"><p>Contoh Format</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>File lokal</p></td>
+<td><p>CSV, Excel, JSON</p></td>
+<td><p>Cara paling umum, mudah diimpor ke Python/Orange</p></td>
+</tr>
+<tr class="row-odd"><td><p>Database</p></td>
+<td><p>MySQL, PostgreSQL</p></td>
+<td><p>Data terstruktur dari sistem informasi</p></td>
+</tr>
+<tr class="row-even"><td><p>API/Web</p></td>
+<td><p>REST API, JSON response</p></td>
+<td><p>Data real-time dari layanan online</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sensor/IoT</p></td>
+<td><p>Time-series, stream</p></td>
+<td><p>Data dari perangkat fisik</p></td>
+</tr>
+<tr class="row-even"><td><p>Web scraping</p></td>
+<td><p>HTML → CSV</p></td>
+<td><p>Pengambilan data web (jika diizinkan)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tahapan Umum Collecting:</strong></p>
+<ol class="arabic simple">
+<li><p>Tentukan kebutuhan — fitur apa, kelas apa, berapa banyak data</p></li>
+<li><p>Ambil data — download file / query DB / panggil API</p></li>
+<li><p>Simpan versi <strong>raw</strong> (mentah) sebelum dimodifikasi apapun</p></li>
+<li><p>Buat <strong>data dictionary</strong> — dokumentasi arti kolom, satuan, tipe data</p></li>
+<li><p>Baru masuk ke fase <strong>data preparation</strong></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="cara-menarik-data-dari-postgresql-ke-orange">
+<h2>3.12 Cara Menarik Data dari PostgreSQL ke Orange<a class="headerlink" href="#cara-menarik-data-dari-postgresql-ke-orange" title="Link to this heading">#</a></h2>
+<p>Orange dapat mengambil data langsung dari database relasional melalui widget <strong>SQL Table</strong>.</p>
+<section id="langkah-konfigurasi">
+<h3>3.12.1 Langkah Konfigurasi<a class="headerlink" href="#langkah-konfigurasi" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Buka <strong>Orange Data Mining</strong></p></li>
+<li><p>Dari panel widget, tambahkan: <strong>SQL Table</strong></p></li>
+<li><p>Pilih tipe database: <strong>PostgreSQL</strong></p></li>
+<li><p>Isi parameter koneksi (host, port, user, password, database)</p></li>
+<li><p>Pilih tabel atau tulis query SQL kustom</p></li>
+<li><p>Sambungkan output ke widget berikutnya</p></li>
+</ol>
+</section>
+<section id="contoh-parameter-koneksi-postgresql">
+<h3>3.12.2 Contoh Parameter Koneksi PostgreSQL<a class="headerlink" href="#contoh-parameter-koneksi-postgresql" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Nilai</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Host</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">localhost</span></code> atau <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Port</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5432</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Database</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nama_database</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>User</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">postgres</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Password</strong></p></td>
+<td><p><em>(sesuai konfigurasi Anda)</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="bukti-data-csv-ke-postgresql">
+<h3>3.12.3 Bukti Data CSV ke PostgreSQL<a class="headerlink" href="#bukti-data-csv-ke-postgresql" title="Link to this heading">#</a></h3>
+<p>Data Iris telah berhasil dimasukkan ke PostgreSQL. Berikut bukti tampilan data di pgAdmin:</p>
+<p>![Bukti Data CSV Telah Dimasukkan ke PostgreSQL](Pertemuan3/Gambar Csv ke PostgreeSQL.png)</p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Tampilan pgAdmin/psql menunjukkan data Iris berhasil di-import ke tabel PostgreSQL. Query <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">public.iris</span></code> mengembalikan 150 baris data lengkap.</p>
+</div></blockquote>
+</section>
+<section id="histogram-fitur-sebelum-dan-sesudah-scaling">
+<h3>3.12.4 Histogram Fitur Sebelum dan Sesudah Scaling<a class="headerlink" href="#histogram-fitur-sebelum-dan-sesudah-scaling" title="Link to this heading">#</a></h3>
+<p>Sebelum menghitung jarak, fitur numerik harus di-<strong>scaling</strong> agar skala antar kolom setara. Berikut perbandingan distribusi fitur Iris sebelum dan sesudah StandardScaler:</p>
+<p><img alt="Histogram Fitur Iris — Sebelum Scaling" src="_images/SebelumScalling.png" /></p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Distribusi fitur Iris sebelum scaling — perhatikan skala yang berbeda-beda antar kolom (<code class="docutils literal notranslate"><span class="pre">petal_length</span></code> range 1–7, <code class="docutils literal notranslate"><span class="pre">sepal_width</span></code> range 2–4).</p>
+</div></blockquote>
+<p><img alt="Histogram Fitur Iris — Sesudah Scaling (StandardScaler)" src="_images/SesudahScalling.png" /></p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Distribusi fitur Iris sesudah StandardScaler — semua fitur dinormalisasi dengan mean ≈ 0 dan std ≈ 1, sehingga skala setara untuk perhitungan jarak.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pengukuran-jarak-distance-metrics-iris-dataset">
+<h2>3.13 Pengukuran Jarak (Distance Metrics) — Iris Dataset<a class="headerlink" href="#pengukuran-jarak-distance-metrics-iris-dataset" title="Link to this heading">#</a></h2>
+<p>Pengukuran jarak adalah langkah kritis dalam data preparation karena akan digunakan oleh banyak algoritma (KNN, K-Means, Hierarchical Clustering, dll).</p>
+<section id="metrik-jarak-numerik-iris">
+<h3>3.13.1 Metrik Jarak Numerik (Iris)<a class="headerlink" href="#metrik-jarak-numerik-iris" title="Link to this heading">#</a></h3>
+<p>Karena seluruh fitur Iris bertipe numerik, beberapa metrik dapat diaplikasikan:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metrik</p></th>
+<th class="head"><p>Formula</p></th>
+<th class="head"><p>Interpretasi Geometri</p></th>
+<th class="head"><p>Kapan Digunakan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Euclidean</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sqrt{\sum (x_i - y_i)^2}\)</span></p></td>
+<td><p>Jarak lurus dalam ruang Euclidean</p></td>
+<td><p><strong>Default choice</strong>, data normal distribusi</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Manhattan</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sum |x_i - y_i|\)</span></p></td>
+<td><p>Jarak blok kota (grid-based)</p></td>
+<td><p>Lebih robust terhadap outlier</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Minkowski (p)</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\((\sum |x_i - y_i|^p)^{1/p}\)</span></p></td>
+<td><p>Generalisasi Euclidean &amp; Manhattan</p></td>
+<td><p>Fleksibel, p=1 → Manhattan, p=2 → Euclidean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="implementasi-di-python-iris-pre-processing">
+<h3>3.13.2 Implementasi di Python (Iris Pre-Processing)<a class="headerlink" href="#implementasi-di-python-iris-pre-processing" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">pairwise_distances</span>
+
+<span class="c1"># Load Iris data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;IRIS.csv&quot;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">]]</span>
+
+<span class="c1"># WAJIB: Scaling sebelum hitung jarak</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Hitung distance matrix dengan berbagai metrik</span>
+<span class="n">D_euclidean</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+<span class="n">D_manhattan</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;manhattan&#39;</span><span class="p">)</span>
+<span class="n">D_minkowski</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;minkowski&#39;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan sample</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Euclidean Distance [0:5, 0:5]:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">D_euclidean</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Output Sample:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Euclidean jarak Iris-0 ke Iris-50 (setosa → versicolor): ≈ 6.50
+Manhattan jarak Iris-0 ke Iris-50: ≈ 10.20
+Minkowski(p=3) jarak Iris-0 ke Iris-50: ≈ 5.40
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="distance-matrix-di-orange-workflow">
+<h2>3.14 Distance Matrix di Orange (Workflow)<a class="headerlink" href="#distance-matrix-di-orange-workflow" title="Link to this heading">#</a></h2>
+<p>Orange menyediakan widget pipeline visual untuk menghitung distance matrix tanpa kode.</p>
+<p><strong>Workflow Rekomendasi di Orange:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[File Import (IRIS.csv)] 
+        ↓
+[Select Columns] — Pilih fitur at tribut, species → Class
+        ↓
+[Normalize] — StandardScaler (opsional tapi direkomendasikan)
+        ↓
+[Distances] — Pilih: Euclidean / Manhattan / Cosine
+        ↓
+[Distance Matrix] — View matriks jarak
+        ↓
+[Heat Map] / [Hierarchical Clustering] — Visualisasi
+</pre></div>
+</div>
+<p><img alt="Workflow Orange — Pengukuran Jarak Iris di Orange" src="_images/DataIrisOrangePengukuranJarak.png" /></p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Workflow Orange menghitung 4 metrik jarak (Euclidean, Manhattan, Spearman, Hamming) dari data Iris yang dimuat melalui CSV File Import dan SQL Table.</p>
+</div></blockquote>
+<p><strong>Output Metrik Jarak Iris (Contoh):</strong></p>
+<p>Setelah widget Distances menjalankan perhitungan, hasilnya ditampilkan di Distance Matrix. Berikut interpretasi nilai:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Euclidean Distance Iris-0 ke Iris-50 (setosa vs versicolor):  ≈ 6.50
+Manhattan Distance Iris-0 ke Iris-50: ≈ 10.20
+Spearman Distance (berbasis korelasi rank): ≈ 0.15
+Hamming Distance (untuk fitur kategorikal): 0 (semua numeric)
+</pre></div>
+</div>
+<p><strong>Kesimpulan:</strong> Euclidean dan Manhattan menunjukkan jarak terjauh antara setosa dan versicolor, sementara Spearman berbasis korelasi rank yang lebih toleran terhadap non-linearitas.</p>
+</section>
+<hr class="docutils" />
+<section id="b-knn-imputation-dataset-iris-data-numerik">
+<h2>3.14b KNN Imputation — Dataset Iris (Data Numerik)<a class="headerlink" href="#b-knn-imputation-dataset-iris-data-numerik" title="Link to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Apa itu KNN Imputation?</p>
+<p><strong>KNN Imputation</strong> adalah teknik pengisian missing value berdasarkan nilai dari <strong>k tetangga terdekat</strong>. Jarak dihitung hanya dari kolom yang <strong>tidak memiliki missing value</strong>, kemudian missing value diisi dengan <strong>rata-rata</strong> (numerik) atau <strong>modus</strong> (kategorikal) dari k tetangga.</p>
+</div>
+<section id="b-1-membuat-missing-value-buatan-pada-iris">
+<h3>3.14b.1 Membuat Missing Value Buatan pada Iris<a class="headerlink" href="#b-1-membuat-missing-value-buatan-pada-iris" title="Link to this heading">#</a></h3>
+<p>Dataset Iris <strong>tidak memiliki missing value</strong> secara asli. Untuk demonstrasi KNN Imputation, dibuat missing value buatan pada <strong>baris 5, kolom <code class="docutils literal notranslate"><span class="pre">petal_width</span></code></strong>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Baris</p></th>
+<th class="head text-center"><p>sepal_length</p></th>
+<th class="head text-center"><p>sepal_width</p></th>
+<th class="head text-center"><p>petal_length</p></th>
+<th class="head text-center"><p>petal_width</p></th>
+<th class="head text-center"><p>species</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><strong>5</strong></p></td>
+<td class="text-center"><p>5.4</p></td>
+<td class="text-center"><p>3.9</p></td>
+<td class="text-center"><p>1.7</p></td>
+<td class="text-center"><p><strong>NaN</strong> <em>(dihapus)</em></p></td>
+<td class="text-center"><p>Iris-setosa</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Nilai asli <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> baris 5 = <strong>0.4</strong> — ini akan digunakan untuk memvalidasi hasil imputasi.</p>
+<p>![Missing Value Buatan pada Iris Baris 5](Pertemuan3/iris missing value buatan.png)</p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Tabel menunjukkan baris 5 dataset Iris dengan <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> = NaN (missing value buatan untuk simulasi KNN Imputation).</p>
+</div></blockquote>
+</section>
+<section id="b-2-perhitungan-jarak-dan-pencarian-tetangga-terdekat">
+<h3>3.14b.2 Perhitungan Jarak dan Pencarian Tetangga Terdekat<a class="headerlink" href="#b-2-perhitungan-jarak-dan-pencarian-tetangga-terdekat" title="Link to this heading">#</a></h3>
+<p><strong>Rumus Euclidean Distance:</strong></p>
+<div class="math notranslate nohighlight">
+\[d(i,j) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 - y_3)^2}\]</div>
+<p>Karena <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> kosong, jarak Euclidean dihitung dari <strong>3 kolom saja</strong>: <code class="docutils literal notranslate"><span class="pre">sepal_length</span></code>, <code class="docutils literal notranslate"><span class="pre">sepal_width</span></code>, <code class="docutils literal notranslate"><span class="pre">petal_length</span></code>.</p>
+<p><strong>Contoh perhitungan manual — Baris 5 vs Baris 0:</strong></p>
+<div class="math notranslate nohighlight">
+\[d(5,0) = \sqrt{(5.4-5.1)^2 + (3.9-3.5)^2 + (1.7-1.4)^2} = \sqrt{0.09 + 0.16 + 0.09} = \sqrt{0.34} \approx 0.5831\]</div>
+<p>Setelah menghitung jarak ke <strong>semua 149 baris lainnya</strong>, diambil <strong>k=3 tetangga terdekat</strong>:</p>
+<p>![10 Jarak Terkecil Dataset Iris — 3 Tetangga Terpilih (Hijau)](Pertemuan3/iris 10 jarak terkecil.png)</p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Tabel 10 jarak terkecil dari baris 5 ke baris-baris lain. Tiga baris teratas (hijau) adalah tetangga terdekat yang akan digunakan untuk imputasi.</p>
+</div></blockquote>
+</section>
+<section id="b-3-hasil-imputasi-knn-pada-iris">
+<h3>3.14b.3 Hasil Imputasi KNN pada Iris<a class="headerlink" href="#b-3-hasil-imputasi-knn-pada-iris" title="Link to this heading">#</a></h3>
+<p>Nilai imputasi dihitung sebagai <strong>rata-rata <code class="docutils literal notranslate"><span class="pre">petal_width</span></code></strong> dari 3 tetangga terdekat:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = \frac{pw_1 + pw_2 + pw_3}{3}\]</div>
+<p>![Hasil Imputasi KNN — Baris 5 Iris](Pertemuan3/iris baris 5 setelah imputasi KKN.png)</p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Baris 5 setelah KNN Imputation — kolom <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> yang sebelumnya NaN kini terisi dengan nilai rata-rata dari 3 tetangga terdekat.</p>
+</div></blockquote>
+<div class="note admonition">
+<p class="admonition-title">Validasi Hasil</p>
+<p>Nilai asli <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> baris 5 = <strong>0.4</strong>. Hasil imputasi KNN mendekati nilai asli ini, menunjukkan bahwa KNN Imputation cukup akurat untuk data numerik murni seperti Iris.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-campuran-mixed-type-palmer-penguins">
+<h2>3.15 Data Campuran (Mixed-Type) — Palmer Penguins<a class="headerlink" href="#data-campuran-mixed-type-palmer-penguins" title="Link to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">📓 Notebook KNN Imputation</p>
+<p>Untuk implementasi <strong>KNN Imputation</strong> secara lengkap (kode + output interaktif) pada dataset Iris dan Palmer Penguins, lihat notebook:</p>
+<p><strong><a class="reference internal" href="Pertemuan3_KNN_Imputation.html"><span class="std std-doc">Pertemuan3_KNN_Imputation.ipynb</span></a></strong></p>
+<p>Notebook tersebut dapat dijalankan langsung di <strong>Google Colab</strong> dan berisi:</p>
+<ul class="simple">
+<li><p>Upload file &amp; tampilkan gambar bukti dari Orange/PostgreSQL</p></li>
+<li><p>KNN Imputation Iris: perhitungan manual + kode + visualisasi</p></li>
+<li><p>KNN Imputation Palmer Penguins (mixed-type): normalisasi Min-Max, jarak kategorikal, jarak total</p></li>
+<li><p>Tabel jarak dan hasil imputasi</p></li>
+</ul>
+<p>Screenshot bukti dari notebook yang sudah dijalankan tersedia di <strong>Section 3.14b</strong> (Iris) dan <strong>Section 3.15.8–3.15.9</strong> (Penguins) di bawah.</p>
+</div>
+<section id="profil-dataset-palmer-penguins">
+<h3>3.15.1 Profil Dataset Palmer Penguins<a class="headerlink" href="#profil-dataset-palmer-penguins" title="Link to this heading">#</a></h3>
+<p>Dataset <strong>Palmer Penguins</strong> dipilih sebagai data campuran (<em>mixed-type</em>) untuk tugas ini karena mengandung <strong>keempat tipe data sekaligus</strong>: numerik, ordinal, nominal/kategorikal, dan biner.</p>
+<p><strong>Sumber Data:</strong></p>
+<ul class="simple">
+<li><p><strong>CSV:</strong> File lokal <code class="docutils literal notranslate"><span class="pre">/DataCampuranPertemuan3/Penguins/penguins_lter.csv</span></code></p></li>
+<li><p><strong>Database:</strong> PostgreSQL tabel <code class="docutils literal notranslate"><span class="pre">penguins_lter</span></code> &#64; database <code class="docutils literal notranslate"><span class="pre">Penguins</span></code></p></li>
+</ul>
+<p><strong>Konteks Penelitian:</strong>
+Penelitian <strong>Palmer Penguins</strong> adalah proyek ekologi jangka panjang (LTER - Long-Term Ecological Research) yang mengamati tiga spesies penguin (<em>Adelie</em>, <em>Chinstrap</em>, <em>Gentoo</em>) di Palmer Station, Antartika. Data mencakup morfologi tubuh (ukuran paruh, sirip, massa), isotop karbon-nitrogen, lokasi geografis (pulau), dan informasi reproduksi.</p>
+<p><strong>Dimensi Dataset:</strong></p>
+<ul class="simple">
+<li><p><strong>Total Baris:</strong> 344 penguin</p></li>
+<li><p><strong>Total Kolom:</strong> 17 (morfologi 4 + isotop 2 + lokasi 3 + meta 8)</p></li>
+<li><p><strong>Periode:</strong> 2007-2009 (PAL0708, PAL0809, PAL0910)</p></li>
+</ul>
+</section>
+<section id="identifikasi-tipe-data-per-kolom-mixed-type-breakdown">
+<h3>3.15.2 Identifikasi Tipe Data per Kolom (Mixed-Type Breakdown)<a class="headerlink" href="#identifikasi-tipe-data-per-kolom-mixed-type-breakdown" title="Link to this heading">#</a></h3>
+<p>Berikut adalah breakdown lengkap dari semua kolom Palmer Penguins:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kolom</p></th>
+<th class="head"><p>Tipe Data</p></th>
+<th class="head"><p>Contoh Nilai</p></th>
+<th class="head"><p>Range/Domain</p></th>
+<th class="head text-center"><p>Metrik Cocok</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>NUMERIK KONTINYU</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">culmen_length_mm</span></code></p></td>
+<td><p>Float</p></td>
+<td><p>39.1, 36.7, 40.3</p></td>
+<td><p>32.1–59.6 mm</p></td>
+<td class="text-center"><p>Euclidean</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">culmen_depth_mm</span></code></p></td>
+<td><p>Float</p></td>
+<td><p>18.7, 19.3, 18.0</p></td>
+<td><p>13.1–21.5 mm</p></td>
+<td class="text-center"><p>Euclidean</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">flipper_length_mm</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>181, 193, 195</p></td>
+<td><p>172–231 mm</p></td>
+<td class="text-center"><p>Euclidean</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>3750, 3450, 3250</p></td>
+<td><p>2700–6300 g</p></td>
+<td class="text-center"><p>Manhattan (robust)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">delta_15_n</span></code></p></td>
+<td><p>Float</p></td>
+<td><p>8.95, 8.77, <em>(null)</em></p></td>
+<td><p>7.63–10.03</p></td>
+<td class="text-center"><p>Euclidean</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">delta_13_c</span></code></p></td>
+<td><p>Float</p></td>
+<td><p>-24.69, -25.32, <em>(null)</em></p></td>
+<td><p>-26.32 to -23.79</p></td>
+<td class="text-center"><p>Euclidean</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ORDINAL</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sample_number</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>1, 2, 3…152</p></td>
+<td><p>1–152</p></td>
+<td class="text-center"><p>Spearman</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stage</span></code></p></td>
+<td><p>String</p></td>
+<td><p>“Adult, 1 Egg Stage”</p></td>
+<td><p>1 kategori utama</p></td>
+<td class="text-center"><p>Spearman</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>NOMINAL KATEGORIKAL</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">species</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Adelie, Chinstrap, Gentoo</p></td>
+<td><p>3 spesies</p></td>
+<td class="text-center"><p>Hamming</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">island</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Torgersen, Biscoe, Dream</p></td>
+<td><p>3 pulau</p></td>
+<td class="text-center"><p>Hamming</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">region</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Anvers</p></td>
+<td><p>1 region utama</p></td>
+<td class="text-center"><p>Hamming</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">study_name</span></code></p></td>
+<td><p>String</p></td>
+<td><p>PAL0708, PAL0809, PAL0910</p></td>
+<td><p>3 tahun riset</p></td>
+<td class="text-center"><p>Hamming</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BINER</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sex</span></code></p></td>
+<td><p>String</p></td>
+<td><p>MALE, FEMALE</p></td>
+<td><p>2 nilai</p></td>
+<td class="text-center"><p>Hamming</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">clutch_completion</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Yes, No</p></td>
+<td><p>2 nilai</p></td>
+<td class="text-center"><p>Hamming</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mengapa-data-campuran-memerlukan-multi-metric-approach">
+<h3>3.15.3 Mengapa Data Campuran Memerlukan Multi-Metric Approach?<a class="headerlink" href="#mengapa-data-campuran-memerlukan-multi-metric-approach" title="Link to this heading">#</a></h3>
+<p>Setiap tipe data memiliki cara pengukuran jarak yang berbeda. Kesalahan dalam memilih metrik dapat menyebabkan hasil analisis yang bias:</p>
+<div class="warning admonition">
+<p class="admonition-title">⚠️ Mengapa Pentingnya Mengidentifikasi Tipe Data dengan Benar?</p>
+<p>Kesalahan identifikasi tipe data dapat menyebabkan:</p>
+<ol class="arabic simple">
+<li><p><strong>Numerik diperlakukan sebagai Nominal:</strong></p>
+<ul class="simple">
+<li><p>Jika <code class="docutils literal notranslate"><span class="pre">sample_number</span></code> (1–152) dianggap kategori nominal, Orange akan menghitung Hamming distance (hanya 0 atau 1)</p></li>
+<li><p>Padahal sebenarnya urutan sampel (1 jauh dari 152) penting untuk analisis temporal</p></li>
+</ul>
+</li>
+<li><p><strong>Ordinal diperlakukan sebagai Nominal:</strong></p>
+<ul class="simple">
+<li><p>Jika <code class="docutils literal notranslate"><span class="pre">stage</span></code> (tahap reproduksi) diperlakukan sebagai nominal acak, urutan biologi hilang</p></li>
+<li><p>Penguin di “Egg Stage” seharusnya lebih mirip dengan penguin Egg Stage lain dibanding tahap berbeda</p></li>
+</ul>
+</li>
+<li><p><strong>Nominal diperlakukan sebagai Numerik:</strong></p>
+<ul class="simple">
+<li><p>Jika <code class="docutils literal notranslate"><span class="pre">island</span></code> (Torgersen=1, Biscoe=2, Dream=3) di-encode numerik lalu dihitung Euclidean</p></li>
+<li><p>Orange akan “berpikir” Dream (3) berjarak 2 unit dari Biscoe (2), padahal keduanya hanya kategori geografis acak</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Solusi:</strong> Gunakan 4 metrik berbeda yang masing-masing optimal untuk tipe datanya — ini adalah pendekatan <strong>Gower Distance</strong> yang diterapkan secara praktis di Orange.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipe Data</p></th>
+<th class="head"><p>Masalah jika Salah</p></th>
+<th class="head"><p>Solusi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Numerik</strong></p></td>
+<td><p>Nilai besar (body_mass_g range ribuan) mendominasi jarak vs nilai kecil</p></td>
+<td><p>Euclidean/Manhattan <strong>setelah scaling</strong> stddev=1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Ordinal</strong></p></td>
+<td><p>Mengabaikan urutan = kehilangan informasi</p></td>
+<td><p>Spearman Rank distance</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Nominal</strong></p></td>
+<td><p>“Jarak” antar kategori tidak berarti</p></td>
+<td><p>Hamming (0 jika sama, 1 jika beda)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Biner</strong></p></td>
+<td><p>Sama seperti nominal</p></td>
+<td><p>Hamming atau Jaccard</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="koneksi-database-postgresql-ke-orange">
+<h3>3.15.4 Koneksi Database PostgreSQL ke Orange<a class="headerlink" href="#koneksi-database-postgresql-ke-orange" title="Link to this heading">#</a></h3>
+<p>Data Palmer Penguins juga tersedia melalui koneksi PostgreSQL live:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Nilai</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Server</strong></p></td>
+<td><p>PostgreSQL</p></td>
+<td><p>Driver database relasional</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Host</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code></p></td>
+<td><p>Server lokal / localhost</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Port</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5432</span></code></p></td>
+<td><p>Port default PostgreSQL</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Database</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Penguins</span></code></p></td>
+<td><p>Database yang berisi Palmer Penguins</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>User</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">postgres</span></code></p></td>
+<td><p>User default PostgreSQL</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Table</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">penguins_lter</span></code></p></td>
+<td><p>Tabel utama dengan 344 baris penguin</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Total Baris</strong></p></td>
+<td><p>344</p></td>
+<td><p>344 penguin dari 3 spesies (Adelie, Chinstrap, Gentoo)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Total Kolom</strong></p></td>
+<td><p>17</p></td>
+<td><p>Morfologi (4), Isotop (2), Lokasi (3), Meta (8)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img alt="Koneksi SQL Table ke PostgreSQL Penguins" src="_images/PostgreKeOrange.png" /></p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Widget SQL Table Orange berhasil terhubung ke database PostgreSQL <code class="docutils literal notranslate"><span class="pre">Penguins</span></code> dan memuat tabel <code class="docutils literal notranslate"><span class="pre">penguins_lter</span></code> (344 baris). Tombol Connect berhasil, dan kolom-kolom seperti <code class="docutils literal notranslate"><span class="pre">species</span></code>, <code class="docutils literal notranslate"><span class="pre">island</span></code>, <code class="docutils literal notranslate"><span class="pre">culmen_length_mm</span></code>, <code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code>, <code class="docutils literal notranslate"><span class="pre">sex</span></code> tersedia untuk dialirkan ke pipeline pengukuran jarak.</p>
+</div></blockquote>
+</section>
+<section id="workflow-orange-pengukuran-jarak-pada-data-campuran">
+<h3>3.15.5 Workflow Orange — Pengukuran Jarak pada Data Campuran<a class="headerlink" href="#workflow-orange-pengukuran-jarak-pada-data-campuran" title="Link to this heading">#</a></h3>
+<p>Orange Data Mining digunakan untuk mengukur jarak menggunakan <strong>4 metrik berbeda</strong> yang masing-masing disesuaikan dengan tipe kolom dalam Palmer Penguins.</p>
+<p><strong>Arsitektur Workflow <code class="docutils literal notranslate"><span class="pre">Penguins.ows</span></code>:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─ [CSV File: penguins_lter.csv] 
+│         ↓
+├─ [Data Table] ──▶ Select Data
+│         │
+│         ├─▶ [Euclidean Distances] ──▶ [Distance Matrix] ──▶ [Save]
+│         ├─▶ [Manhattan Distances] ──▶ [Distance Matrix] ──▶ [Save]
+│         ├─▶ [Spearman Distances]  ──▶ [Distance Matrix] ──▶ [Save]
+│         └─▶ [Hamming Distances]   ──▶ [Distance Matrix] ──▶ [Save]
+│
+└─ [SQL Table: PostgreSQL Penguins]
+          ↓
+        [Data Table (2)]
+          │
+          ├─▶ [Euclidean Distances] ──▶ [Distance Matrix] ──▶ [Save]
+          ├─▶ [Manhattan Distances] ──▶ [Distance Matrix] ──▶ [Save]
+          ├─▶ [Spearman Distances]  ──▶ [Distance Matrix] ──▶ [Save]
+          └─▶ [Hamming Distances]   ──▶ [Distance Matrix] ──▶ [Save]
+</pre></div>
+</div>
+<p><strong>Penjelasan Widget Orange yang Digunakan:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Widget</p></th>
+<th class="head"><p>Fungsi</p></th>
+<th class="head"><p>Konfigurasi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>CSV File</strong></p></td>
+<td><p>Membaca penguins_lter.csv</p></td>
+<td><p>Path: DataCampuranPertemuan3/Penguins/</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SQL Table</strong></p></td>
+<td><p>Koneksi PostgreSQL → penguins_lter</p></td>
+<td><p>Host: localhost, DB: Penguins</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Data Table</strong></p></td>
+<td><p>Inspeksi data (344 baris × 17 kolom)</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Distances (Euclidean)</strong></p></td>
+<td><p>Metric: Euclidean</p></td>
+<td><p>Numerik: 6 kolom</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Distances (Manhattan)</strong></p></td>
+<td><p>Metric: City Block/Manhattan</p></td>
+<td><p>Numerik: robust outlier</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Distances (Spearman)</strong></p></td>
+<td><p>Metric: Spearman Correlation Rank</p></td>
+<td><p>Ordinal: 2 kolom</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Distances (Hamming)</strong></p></td>
+<td><p>Metric: Hamming Distance</p></td>
+<td><p>Nominal+Biner: 6 kolom</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Distance Matrix</strong></p></td>
+<td><p>Output matriks 344×344</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Save Distance Matrix</strong></p></td>
+<td><p>Export ke file .dst</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Penjelasan 4 Metrik yang Dipakai:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metrik</p></th>
+<th class="head"><p>Tipe Data</p></th>
+<th class="head"><p>Formula</p></th>
+<th class="head"><p>Aplikasi pada Palmer Penguins</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Euclidean</strong></p></td>
+<td><p>Numerik</p></td>
+<td><p><span class="math notranslate nohighlight">\(d = \sqrt{\sum(x_i - y_i)^2}\)</span></p></td>
+<td><p>Mengukur perbedaan morfologi lengkap (paruh, sirip, massa tubuh, isotop)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Manhattan</strong></p></td>
+<td><p>Numerik (robust)</p></td>
+<td><p><span class="math notranslate nohighlight">\(d = \sum|x_i - y_i|\)</span></p></td>
+<td><p>Lebih tahan OutlierMass: Gentoo (6300g) bisa 2× Adelie (2700g); Manhattan lebih robust</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Spearman</strong></p></td>
+<td><p>Ordinal</p></td>
+<td><p>Rank correlation</p></td>
+<td><p>Mengukur urutan sampel temporal &amp; tahap reproduksi tanpa asumsi linearitas</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Hamming</strong></p></td>
+<td><p>Nominal+Biner</p></td>
+<td><p>Proporsi attr berbeda</p></td>
+<td><p>Species, Island, Region, StudyName, Sex, ClutchCompletion: 0 jika sama, 1 jika beda</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img alt="Workflow Orange — Pengukuran Jarak Data Campuran Palmer Penguins" src="_images/DataCampuranPenguins.png" /></p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Workflow <code class="docutils literal notranslate"><span class="pre">Penguins.ows</span></code> di Orange Data Mining menunjukkan dua sumber data (CSV dan SQL PostgreSQL), masing-masing dialirkan ke 4 widget Distances berbeda (Euclidean, Manhattan, Spearman, Hamming) → Distance Matrix → Save.</p>
+</div></blockquote>
+</section>
+<section id="download-file-pendukung-pertemuan-3">
+<h3>3.15.6 Download File Pendukung Pertemuan 3<a class="headerlink" href="#download-file-pendukung-pertemuan-3" title="Link to this heading">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">📥 Download File yang Tersedia</p>
+<p><strong>1️⃣ Orange Workflow - Pengukuran Jarak Mixed-Type Data Palmer Penguins:</strong></p>
+<p><a class="reference download internal" download="" href="_downloads/c625897b506416d5813805309af6d5c2/Penguins.ows"><code class="xref download docutils literal notranslate"><span class="pre">Penguins.ows</span></code></a></p>
+<p>📄 File ini (<code class="docutils literal notranslate"><span class="pre">.ows</span></code>) berisi seluruh pipeline Orange untuk tugas 3:</p>
+<ul class="simple">
+<li><p><strong>Data Source 1 (CSV):</strong> Import <code class="docutils literal notranslate"><span class="pre">penguins_lter.csv</span></code> dari folder lokal</p></li>
+<li><p><strong>Data Source 2 (SQL):</strong> Koneksi PostgreSQL ke database <code class="docutils literal notranslate"><span class="pre">Penguins</span></code>, tabel <code class="docutils literal notranslate"><span class="pre">penguins_lter</span></code> (344 baris)</p></li>
+<li><p><strong>Processing Pipeline:</strong> Kedua sumber data dialirkan ke:</p>
+<ul>
+<li><p><strong>Distances (Euclidean)</strong> → Distance Matrix → Save</p></li>
+<li><p><strong>Distances (Manhattan)</strong> → Distance Matrix → Save</p></li>
+<li><p><strong>Distances (Spearman)</strong> → Distance Matrix → Save</p></li>
+<li><p><strong>Distances (Hamming)</strong> → Distance Matrix → Save</p></li>
+</ul>
+</li>
+<li><p><strong>Output:</strong> 4 file Distance Matrix (<code class="docutils literal notranslate"><span class="pre">.dst</span></code>) hasil perhitungan</p></li>
+</ul>
+<p><strong>Cara Membuka:</strong></p>
+<ol class="arabic simple">
+<li><p>Buka Orange Data Mining</p></li>
+<li><p>Klik <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">→</span> <span class="pre">Open...</span></code> → pilih file <code class="docutils literal notranslate"><span class="pre">Penguins.ows</span></code></p></li>
+<li><p>Semua widget dan koneksi akan dimuat otomatis</p></li>
+<li><p>Klik tombol ▶️ <strong>Execute Workflow</strong> untuk menjalankan perhitungan</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>2️⃣ Data CSV - Palmer Penguins (344 baris, 17 kolom):</strong></p>
+<p><a class="reference download internal" download="" href="_downloads/469a134711851de121d20ec3d50d37d0/penguins_lter.csv"><code class="xref download docutils literal notranslate"><span class="pre">penguins_lter.csv</span></code></a></p>
+<p>📊 File CSV yang berisi 344 penguin dari populasi Palmer Station:</p>
+<ul class="simple">
+<li><p><strong>Kolom Numerik (6):</strong> <code class="docutils literal notranslate"><span class="pre">culmen_length_mm</span></code>, <code class="docutils literal notranslate"><span class="pre">culmen_depth_mm</span></code>, <code class="docutils literal notranslate"><span class="pre">flipper_length_mm</span></code>, <code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code>, <code class="docutils literal notranslate"><span class="pre">delta_15_n</span></code>, <code class="docutils literal notranslate"><span class="pre">delta_13_c</span></code></p></li>
+<li><p><strong>Kolom Kategorikal (4):</strong> <code class="docutils literal notranslate"><span class="pre">species</span></code> (Adelie, Chinstrap, Gentoo), <code class="docutils literal notranslate"><span class="pre">island</span></code> (Torgersen, Biscoe, Dream), <code class="docutils literal notranslate"><span class="pre">region</span></code>, <code class="docutils literal notranslate"><span class="pre">study_name</span></code></p></li>
+<li><p><strong>Kolom Ordinal (2):</strong> <code class="docutils literal notranslate"><span class="pre">stage</span></code> (tahap reproduksi), <code class="docutils literal notranslate"><span class="pre">sample_number</span></code> (urutan sampel)</p></li>
+<li><p><strong>Kolom Biner (2):</strong> <code class="docutils literal notranslate"><span class="pre">sex</span></code> (MALE/FEMALE), <code class="docutils literal notranslate"><span class="pre">clutch_completion</span></code> (Yes/No)</p></li>
+</ul>
+<p><strong>Gunakan untuk:</strong></p>
+<ul class="simple">
+<li><p>Import langsung ke Orange widget <strong>File</strong> (tanpa koneksi DB)</p></li>
+<li><p>Analisis data di Python/Pandas</p></li>
+<li><p>Backup lokal jika tidak tersedia koneksi PostgreSQL</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>3️⃣ SQL Database Script - PostgreSQL Palmer Penguins:</strong></p>
+<p><a class="reference download internal" download="" href="_downloads/bd11bfbeff5b07139f64feb163188260/Penguins.sql"><code class="xref download docutils literal notranslate"><span class="pre">Penguins.sql</span></code></a></p>
+<p>🗄️ Script SQL lengkap untuk membuat database dan tabel Palmer Penguins di PostgreSQL:</p>
+<p><strong>Isi Script:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Membuat database &#39;Penguins&#39;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">Penguins</span><span class="p">;</span>
+
+<span class="c1">-- Membuat tabel &#39;penguins_lter&#39; dengan 17 kolom</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">penguins_lter</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">penguin_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">study_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">sample_number</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="n">species</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">region</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">island</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">stage</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">individual_id</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">clutch_completion</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">date_egg</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">culmen_length_mm</span><span class="w"> </span><span class="nb">NUMERIC</span><span class="p">,</span>
+<span class="w">    </span><span class="n">culmen_depth_mm</span><span class="w"> </span><span class="nb">NUMERIC</span><span class="p">,</span>
+<span class="w">    </span><span class="n">flipper_length_mm</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="n">body_mass_g</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="n">sex</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">delta_15_n</span><span class="w"> </span><span class="nb">NUMERIC</span><span class="p">,</span>
+<span class="w">    </span><span class="n">delta_13_c</span><span class="w"> </span><span class="nb">NUMERIC</span><span class="p">,</span>
+<span class="w">    </span><span class="n">comments</span><span class="w"> </span><span class="nb">TEXT</span>
+<span class="p">);</span>
+
+<span class="c1">-- Import 344 data penguin</span>
+<span class="k">COPY</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">penguins_lter</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">STDIN</span><span class="p">;</span>
+<span class="p">...(</span><span class="mi">344</span><span class="w"> </span><span class="n">baris</span><span class="w"> </span><span class="k">data</span><span class="p">)...</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Cara Menggunakan:</strong></p>
+<ol class="arabic simple">
+<li><p>Buka terminal PostgreSQL: <code class="docutils literal notranslate"><span class="pre">psql</span> <span class="pre">-U</span> <span class="pre">postgres</span></code></p></li>
+<li><p>Jalankan script: <code class="docutils literal notranslate"><span class="pre">\i</span> <span class="pre">/path/to/Penguins.sql</span></code></p></li>
+<li><p>Verifikasi: <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">COUNT(*)</span> <span class="pre">FROM</span> <span class="pre">penguins_lter;</span></code> → hasilnya 344</p></li>
+<li><p>Gunakan untuk Orange widget <strong>SQL Table</strong> (Host: localhost, Port: 5432, DB: Penguins)</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>📋 Ringkasan File Pendukung:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Format</p></th>
+<th class="head"><p>Ukuran</p></th>
+<th class="head"><p>Kegunaan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Penguins.ows</span></code></p></td>
+<td><p>Orange Workflow</p></td>
+<td><p>&lt; 1 MB</p></td>
+<td><p>Pipeline analisis jarak 4 metrik</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">penguins_lter.csv</span></code></p></td>
+<td><p>CSV Tabular</p></td>
+<td><p>≈ 56 KB</p></td>
+<td><p>Data raw Palmer Penguins</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Penguins.sql</span></code></p></td>
+<td><p>SQL Script</p></td>
+<td><p>≈ 18 KB</p></td>
+<td><p>Pembuatan DB PostgreSQL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+### 3.15.7 Konsep Gower Distance (Referensi Teoritis)
+
+Untuk pengukuran jarak data campuran secara teoritis, digunakan **Gower Distance** yang menggabungkan semua tipe data dengan formula:
+
+$$d_{Gower}(x, y) = \frac{1}{p}\sum_{i=1}^{p} d_i(x_i, y_i)$$
+
+Setiap komponen $d_i$ dihitung berbeda berdasarkan tipe data:
+
+| Tipe Fitur | Cara Hitung $d_i$ | Deskripsi |
+|-----------|-----------------|-----------|
+| **Numerik** | $\frac{\|x_i - y_i\|}{R_i}$ | Selisih absolut dibagi range kolom (normalisasi 0-1) |
+| **Ordinal** | $\frac{\|rank(x_i) - rank(y_i)\|}{k-1}$ | Selisih rank dibagi (jumlah kategori - 1) |
+| **Nominal** | $d_i = 0$ jika $x_i = y_i$, else $1$ | Binary: sama atau berbeda |
+| **Biner** | $d_i = 0$ jika $x_i = y_i$, else $1$ | Binary: sama atau berbeda |
+
+**Implementasi Praktis di Orange:**
+Gower Distance diimplementasikan secara terpisah per tipe data menggunakan:
+- **Euclidean distance** untuk fitur numerik (setelah scaling)
+- **Spearman distance** untuk fitur ordinal
+- **Hamming distance** untuk fitur nominal dan biner
+
+Kemudian hasil dari setiap metrik dapat digabungkan dengan rata-rata atau weight tertentu sesuai keperluan analisis.
+
+---
+
+### 3.15.8 Identifikasi Missing Value — Palmer Penguins
+
+Berbeda dengan Iris, dataset Palmer Penguins **memiliki missing value nyata** pada beberapa kolom:
+
+| Kolom dengan Missing Value | Jumlah Missing | Keterangan |
+|---|:---:|---|
+| `Sex` | 11 | Jenis kelamin tidak teridentifikasi |
+| `Delta 15 N (o/oo)` | 14 | Isotop nitrogen tidak terukur |
+| `Delta 13 C (o/oo)` | 13 | Isotop karbon tidak terukur |
+| `Culmen Length (mm)` | 2 | Pengukuran paruh tidak tercatat |
+| `Culmen Depth (mm)` | 2 | Pengukuran paruh tidak tercatat |
+| `Flipper Length (mm)` | 2 | Pengukuran sirip tidak tercatat |
+| `Body Mass (g)` | 2 | Massa tubuh tidak tercatat |
+| `Comments` | banyak | Kolom opsional |
+
+![Jumlah Missing Value per Kolom — Palmer Penguins](Pertemuan3/jumlah missing value peungins.png)
+
+&gt; **Gambar:** Grafik batang menunjukkan jumlah missing value per kolom pada dataset Palmer Penguins (344 baris). Kolom isotop (`Delta 15 N`, `Delta 13 C`) dan `Sex` memiliki missing value terbanyak.
+
+```{admonition} Missing Value Nyata vs Buatan
+:class: warning
+
+Pada Iris, kita **membuat** missing value buatan untuk simulasi. Pada Palmer Penguins, missing value sudah **ada secara alami** di data asli. Namun untuk demonstrasi KNN Imputation yang terkontrol, kita tetap membuat missing value buatan pada **kolom `Body Mass (g)` baris 5** setelah membersihkan baris-baris yang sudah memiliki missing.
+</pre></div>
+</div>
+</section>
+<section id="knn-imputation-palmer-penguins-data-campuran">
+<h3>3.15.9 KNN Imputation — Palmer Penguins (Data Campuran)<a class="headerlink" href="#knn-imputation-palmer-penguins-data-campuran" title="Link to this heading">#</a></h3>
+<section id="perbedaan-dengan-iris">
+<h4>Perbedaan dengan Iris<a class="headerlink" href="#perbedaan-dengan-iris" title="Link to this heading">#</a></h4>
+<p>KNN Imputation pada <strong>data campuran</strong> memerlukan penanganan khusus karena tipe kolom berbeda-beda:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspek</p></th>
+<th class="head"><p>Iris (Numerik Murni)</p></th>
+<th class="head"><p>Palmer Penguins (Campuran)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Tipe data</strong></p></td>
+<td><p>Semua numerik</p></td>
+<td><p>Numerik + Kategorikal</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Normalisasi</strong></p></td>
+<td><p>Tidak wajib (skala mirip)</p></td>
+<td><p><strong>Wajib</strong> Min-Max pada numerik</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Jarak numerik</strong></p></td>
+<td><p>Euclidean langsung</p></td>
+<td><p>Euclidean <strong>setelah normalisasi</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Jarak kategorikal</strong></p></td>
+<td><p>Tidak ada</p></td>
+<td><p><span class="math notranslate nohighlight">\((P-M)/P\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Jarak total</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(d_{euclidean}\)</span> saja</p></td>
+<td><p><span class="math notranslate nohighlight">\(d_{num} + d_{kat}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="langkah-perhitungan">
+<h4>Langkah Perhitungan<a class="headerlink" href="#langkah-perhitungan" title="Link to this heading">#</a></h4>
+<p><strong>1. Normalisasi Min-Max pada kolom numerik:</strong></p>
+<div class="math notranslate nohighlight">
+\[x' = \frac{x - x_{min}}{x_{max} - x_{min}}\]</div>
+<p>Kolom yang dinormalisasi: <code class="docutils literal notranslate"><span class="pre">Culmen</span> <span class="pre">Length</span> <span class="pre">(mm)</span></code>, <code class="docutils literal notranslate"><span class="pre">Culmen</span> <span class="pre">Depth</span> <span class="pre">(mm)</span></code>, <code class="docutils literal notranslate"><span class="pre">Flipper</span> <span class="pre">Length</span> <span class="pre">(mm)</span></code>.
+Kolom <code class="docutils literal notranslate"><span class="pre">Body</span> <span class="pre">Mass</span> <span class="pre">(g)</span></code> <strong>tidak diikutkan</strong> karena merupakan kolom target (missing).</p>
+<p><strong>2. Hitung jarak numerik (Euclidean setelah normalisasi):</strong></p>
+<div class="math notranslate nohighlight">
+\[d_{num} = \sqrt{\sum_{i \in \text{numerik}} (x'_i - y'_i)^2}\]</div>
+<p><strong>3. Hitung jarak kategorikal:</strong></p>
+<div class="math notranslate nohighlight">
+\[d_{kat} = \frac{P - M}{P}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span> = jumlah kolom kategorikal (3: <code class="docutils literal notranslate"><span class="pre">Island</span></code>, <code class="docutils literal notranslate"><span class="pre">Sex</span></code>, <code class="docutils literal notranslate"><span class="pre">Clutch</span> <span class="pre">Completion</span></code>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(M\)</span> = jumlah kolom yang nilainya <strong>sama</strong></p></li>
+</ul>
+<p><strong>4. Hitung jarak total:</strong></p>
+<div class="math notranslate nohighlight">
+\[d_{total} = d_{num} + d_{kat}\]</div>
+</section>
+<section id="missing-value-buatan-pada-body-mass">
+<h4>Missing Value Buatan pada Body Mass<a class="headerlink" href="#missing-value-buatan-pada-body-mass" title="Link to this heading">#</a></h4>
+<p>![Missing Value Body Mass Penguins](Pertemuan3/bodymass peungeins missing value.png)</p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Baris target Palmer Penguins dengan <code class="docutils literal notranslate"><span class="pre">Body</span> <span class="pre">Mass</span> <span class="pre">(g)</span></code> = NaN (missing value buatan). Kolom lainnya lengkap dan akan digunakan untuk menghitung jarak.</p>
+</div></blockquote>
+</section>
+<section id="jarak-terkecil-dan-tetangga-terdekat">
+<h4>10 Jarak Terkecil dan Tetangga Terdekat<a class="headerlink" href="#jarak-terkecil-dan-tetangga-terdekat" title="Link to this heading">#</a></h4>
+<p>![10 Jarak Terkecil — Palmer Penguins (3 Tetangga Terpilih)](Pertemuan3/jarak terkecil.png)</p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Tabel 10 jarak terkecil (total) pada data campuran Palmer Penguins. Kolom <code class="docutils literal notranslate"><span class="pre">d_num</span></code> adalah jarak numerik (Euclidean ternormalisasi), <code class="docutils literal notranslate"><span class="pre">d_kat</span></code> adalah jarak kategorikal, dan <code class="docutils literal notranslate"><span class="pre">d_total</span></code> = <code class="docutils literal notranslate"><span class="pre">d_num</span></code> + <code class="docutils literal notranslate"><span class="pre">d_kat</span></code>. Tiga baris teratas (hijau) adalah tetangga terdekat.</p>
+</div></blockquote>
+</section>
+<section id="hasil-imputasi-knn-pada-body-mass">
+<h4>Hasil Imputasi KNN pada Body Mass<a class="headerlink" href="#hasil-imputasi-knn-pada-body-mass" title="Link to this heading">#</a></h4>
+<p>Setelah mendapatkan 3 tetangga terdekat, missing value diisi dengan <strong>rata-rata <code class="docutils literal notranslate"><span class="pre">Body</span> <span class="pre">Mass</span> <span class="pre">(g)</span></code></strong> dari ketiga tetangga:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = \frac{BM_1 + BM_2 + BM_3}{3}\]</div>
+<p>![Hasil Imputasi KNN — Body Mass Palmer Penguins](Pertemuan3/setelah implemntas kkn body mass.png)</p>
+<blockquote>
+<div><p><strong>Gambar:</strong> Baris target setelah KNN Imputation — kolom <code class="docutils literal notranslate"><span class="pre">Body</span> <span class="pre">Mass</span> <span class="pre">(g)</span></code> yang sebelumnya NaN kini terisi dengan rata-rata dari 3 tetangga terdekat.</p>
+</div></blockquote>
+<div class="note admonition">
+<p class="admonition-title">Perbandingan Hasil Imputasi</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dataset</p></th>
+<th class="head"><p>Kolom Target</p></th>
+<th class="head"><p>Metode Jarak</p></th>
+<th class="head"><p>Normalisasi</p></th>
+<th class="head text-center"><p>k</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Iris</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">petal_width</span></code></p></td>
+<td><p>Euclidean (3 fitur)</p></td>
+<td><p>Tidak</p></td>
+<td class="text-center"><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Palmer Penguins</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Body</span> <span class="pre">Mass</span> <span class="pre">(g)</span></code></p></td>
+<td><p>Euclidean + Kategorikal gabungan</p></td>
+<td><p>Min-Max</p></td>
+<td class="text-center"><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Pada data campuran, hasil imputasi memperhitungkan <strong>kesamaan kategori</strong> (Island, Sex, Clutch Completion) selain kedekatan numerik — sehingga tetangga yang terpilih benar-benar “mirip” secara keseluruhan.</p>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="menyimpan-dataset-final-untuk-modeling">
+<h2>3.16 Menyimpan Dataset Final untuk Modeling<a class="headerlink" href="#menyimpan-dataset-final-untuk-modeling" title="Link to this heading">#</a></h2>
+<p>Setelah seluruh proses preparation dan pengukuran jarak selesai, dataset yang sudah di-scale disimpan sebagai file CSV baru untuk tahap Modeling.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Assuming X adalah fitur numerik yang sudah dipilih</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Buat DataFrame hasil scaling</span>
+<span class="n">df_modeling</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">df_modeling</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Simpan untuk tahap modeling</span>
+<span class="n">df_modeling</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;Dataset_Setelah_Preparation.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_modeling</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>Output <code class="docutils literal notranslate"><span class="pre">df_modeling.head()</span></code> — Dataset Siap Modeling:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>sepal_length</p></th>
+<th class="head"><p>sepal_width</p></th>
+<th class="head"><p>petal_length</p></th>
+<th class="head"><p>petal_width</p></th>
+<th class="head text-center"><p>target</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>0</strong></p></td>
+<td><p>-0.9155</p></td>
+<td><p>1.0199</p></td>
+<td><p>-1.3577</p></td>
+<td><p>-1.3359</p></td>
+<td class="text-center"><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1</strong></p></td>
+<td><p>-1.1576</p></td>
+<td><p>-0.1280</p></td>
+<td><p>-1.3577</p></td>
+<td><p>-1.3359</p></td>
+<td class="text-center"><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2</strong></p></td>
+<td><p>-1.3996</p></td>
+<td><p>0.3311</p></td>
+<td><p>-1.4147</p></td>
+<td><p>-1.3359</p></td>
+<td class="text-center"><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3</strong></p></td>
+<td><p>-1.5206</p></td>
+<td><p>0.1015</p></td>
+<td><p>-1.3006</p></td>
+<td><p>-1.3359</p></td>
+<td class="text-center"><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>4</strong></p></td>
+<td><p>-1.0365</p></td>
+<td><p>1.2495</p></td>
+<td><p>-1.3577</p></td>
+<td><p>-1.3359</p></td>
+<td class="text-center"><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dataset ini siap untuk tahap Modeling (KNN, Decision Tree, SVM, Random Forest, dll).</p>
+</section>
+<hr class="docutils" />
+<section id="checklist-output-pertemuan-3">
+<h2>3.17 Checklist Output Pertemuan 3<a class="headerlink" href="#checklist-output-pertemuan-3" title="Link to this heading">#</a></h2>
+<p>Verifikasi semua komponen output yang harus ada:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>No</p></th>
+<th class="head"><p>Komponen</p></th>
+<th class="head text-center"><p>Status</p></th>
+<th class="head"><p>Section</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Identifikasi missing value</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Ref: <a class="reference external" href="http://Data-Preparation.md">Data-Preparation.md</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Statistik deskriptif per fitur</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Ref: <a class="reference external" href="http://Data-Preparation.md">Data-Preparation.md</a></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Statistik deskriptif per kelas</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Ref: <a class="reference external" href="http://Data-Preparation.md">Data-Preparation.md</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Penjelasan fitur vs kelas (Iris)</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Ref: <a class="reference external" href="http://Data-Preparation.md">Data-Preparation.md</a></p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Cara tarik data dari PostgreSQL</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.12</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Cara collecting data</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.11</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Scaling dan alasan scaling</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Ref: <a class="reference external" href="http://Data-Preparation.md">Data-Preparation.md</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8⭐</strong></p></td>
+<td><p><strong>TUGAS 1: Pengukuran Jarak Iris</strong> (Euclidean, Manhattan, Spearman, Hamming)</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.13–3.14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9⭐</strong></p></td>
+<td><p><strong>TUGAS 2: Data Campuran Palmer Penguins</strong> (14 kolom mixed-type)</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10⭐</strong></p></td>
+<td><p><strong>TUGAS 3: Pengukuran Jarak pada Data Campuran di Orange</strong></p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.15.5-3.15.6</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Koneksi SQL PostgreSQL → Orange</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.15.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>File <code class="docutils literal notranslate"><span class="pre">.ows</span></code>, <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.sql</span></code> diunduh</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.15.6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13⭐</strong></p></td>
+<td><p><strong>KNN Imputation — Iris</strong> (missing value buatan, jarak, imputasi)</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.14b</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>14⭐</strong></p></td>
+<td><p><strong>Missing Value — Palmer Penguins</strong> (identifikasi, grafik)</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.15.8</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>15⭐</strong></p></td>
+<td><p><strong>KNN Imputation — Palmer Penguins</strong> (data campuran, normalisasi, jarak gabungan)</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Section 3.15.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Notebook KNN Imputation (Google Colab)</p></td>
+<td class="text-center"><p>✅</p></td>
+<td><p>Pertemuan3_KNN_Imputation.ipynb</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>⭐ = Komponen tugas wajib dinilai Pertemuan 3</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="referensi-bacaan-tambahan">
+<h2>Referensi &amp; Bacaan Tambahan<a class="headerlink" href="#referensi-bacaan-tambahan" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Gower, J. C. (1971).</strong> “A General Coefficient of Similarity and Some of Its Properties.” Biometrics, 27(4), 857-874. — Paper klasik Gower Distance</p></li>
+<li><p><strong>Palmer Station LTER.</strong> <a class="reference external" href="https://pallter.marine.rutgers.edu/">https://pallter.marine.rutgers.edu/</a> — Sumber data Palmer Penguins</p></li>
+<li><p><strong>Orange Data Mining Documentation.</strong> <a class="reference external" href="https://orange-data-mining.readthedocs.io/">https://orange-data-mining.readthedocs.io/</a> — Widget reference</p></li>
+</ul>
+<hr class="docutils" />
+<div class="note admonition">
+<p class="admonition-title">👤 Identitas Mahasiswa</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atribut</p></th>
+<th class="head"><p>Nilai</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Nama</strong></p></td>
+<td><p>Aisya</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>NIM</strong></p></td>
+<td><p>240411100025</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Mata Kuliah</strong></p></td>
+<td><p>Penambangan Data</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Pertemuan</strong></p></td>
+<td><p>3 — Data Preparation</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Topik Utama</strong></p></td>
+<td><p>Pengukuran Jarak + Data Campuran</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sistem Penilaian</strong></p></td>
+<td><p>A (Tugas 1,2,3 Selesai)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Terakhir diperbarui:</strong> March 11, 2026 | Format: Jupyter Book 1.0.0</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Data-Preparation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Preparation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Pertemuan3_KNN_Imputation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pertemuan 3 — Data Preparation &amp; KNN Imputation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#studi-kasus-iris-data-campuran-mixed-type">Studi Kasus: Iris + Data Campuran (Mixed-Type)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-pertemuan-3">✅ Tugas Pertemuan 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-crisp-dm">3.1 Konsep CRISP-DM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-campuran-mixed-type-data-konsep-fundamental">3.2 Data Campuran (Mixed-Type Data): Konsep Fundamental</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-dan-pentingnya">3.2.1 Definisi dan Pentingnya</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tantangan-data-campuran">3.2.2 Tantangan Data Campuran</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-multi-metric-approach">3.2.3 Solusi: Multi-Metric Approach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-lingkungan-untuk-jupyter-notebook">3.3 Persiapan Lingkungan untuk Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-data-preparation-dataset-iris">3.4-3.10 Review: Data Preparation Dataset Iris</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-collecting-data">3.11 Cara Collecting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-menarik-data-dari-postgresql-ke-orange">3.12 Cara Menarik Data dari PostgreSQL ke Orange</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-konfigurasi">3.12.1 Langkah Konfigurasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-parameter-koneksi-postgresql">3.12.2 Contoh Parameter Koneksi PostgreSQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bukti-data-csv-ke-postgresql">3.12.3 Bukti Data CSV ke PostgreSQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-fitur-sebelum-dan-sesudah-scaling">3.12.4 Histogram Fitur Sebelum dan Sesudah Scaling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengukuran-jarak-distance-metrics-iris-dataset">3.13 Pengukuran Jarak (Distance Metrics) — Iris Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrik-jarak-numerik-iris">3.13.1 Metrik Jarak Numerik (Iris)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-di-python-iris-pre-processing">3.13.2 Implementasi di Python (Iris Pre-Processing)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-matrix-di-orange-workflow">3.14 Distance Matrix di Orange (Workflow)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-knn-imputation-dataset-iris-data-numerik">3.14b KNN Imputation — Dataset Iris (Data Numerik)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-1-membuat-missing-value-buatan-pada-iris">3.14b.1 Membuat Missing Value Buatan pada Iris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-2-perhitungan-jarak-dan-pencarian-tetangga-terdekat">3.14b.2 Perhitungan Jarak dan Pencarian Tetangga Terdekat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-3-hasil-imputasi-knn-pada-iris">3.14b.3 Hasil Imputasi KNN pada Iris</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-campuran-mixed-type-palmer-penguins">3.15 Data Campuran (Mixed-Type) — Palmer Penguins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profil-dataset-palmer-penguins">3.15.1 Profil Dataset Palmer Penguins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-tipe-data-per-kolom-mixed-type-breakdown">3.15.2 Identifikasi Tipe Data per Kolom (Mixed-Type Breakdown)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-data-campuran-memerlukan-multi-metric-approach">3.15.3 Mengapa Data Campuran Memerlukan Multi-Metric Approach?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-database-postgresql-ke-orange">3.15.4 Koneksi Database PostgreSQL ke Orange</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-orange-pengukuran-jarak-pada-data-campuran">3.15.5 Workflow Orange — Pengukuran Jarak pada Data Campuran</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-file-pendukung-pertemuan-3">3.15.6 Download File Pendukung Pertemuan 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn-imputation-palmer-penguins-data-campuran">3.15.9 KNN Imputation — Palmer Penguins (Data Campuran)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-dengan-iris">Perbedaan dengan Iris</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-perhitungan">Langkah Perhitungan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-buatan-pada-body-mass">Missing Value Buatan pada Body Mass</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jarak-terkecil-dan-tetangga-terdekat">10 Jarak Terkecil dan Tetangga Terdekat</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-imputasi-knn-pada-body-mass">Hasil Imputasi KNN pada Body Mass</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-dataset-final-untuk-modeling">3.16 Menyimpan Dataset Final untuk Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-output-pertemuan-3">3.17 Checklist Output Pertemuan 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi-bacaan-tambahan">Referensi &amp; Bacaan Tambahan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aisya (NIM: 240411100025)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
