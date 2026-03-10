@@ -753,7 +753,7 @@ identifikasi missing value, statistik deskriptif, encoding, scaling, <strong>pen
 <section id="bukti-data-csv-ke-postgresql">
 <h3>3.12.3 Bukti Data CSV ke PostgreSQL<a class="headerlink" href="#bukti-data-csv-ke-postgresql" title="Link to this heading">#</a></h3>
 <p>Data Iris telah berhasil dimasukkan ke PostgreSQL. Berikut bukti tampilan data di pgAdmin:</p>
-<p>![Bukti Data CSV Telah Dimasukkan ke PostgreSQL](Pertemuan3/Gambar Csv ke PostgreeSQL.png)</p>
+<p><img alt="Bukti Data CSV Telah Dimasukkan ke PostgreSQL" src="_images/Gambar-Csv-ke-PostgreeSQL.png" /></p>
 <blockquote>
 <div><p><strong>Gambar:</strong> Tampilan pgAdmin/psql menunjukkan data Iris berhasil di-import ke tabel PostgreSQL. Query <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">public.iris</span></code> mengembalikan 150 baris data lengkap.</p>
 </div></blockquote>
@@ -900,7 +900,7 @@ Hamming Distance (untuk fitur kategorikal): 0 (semua numeric)
 </table>
 </div>
 <p>Nilai asli <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> baris 5 = <strong>0.4</strong> — ini akan digunakan untuk memvalidasi hasil imputasi.</p>
-<p>![Missing Value Buatan pada Iris Baris 5](Pertemuan3/iris missing value buatan.png)</p>
+<p><img alt="Missing Value Buatan pada Iris Baris 5" src="_images/iris-missing-value-buatan.png" /></p>
 <blockquote>
 <div><p><strong>Gambar:</strong> Tabel menunjukkan baris 5 dataset Iris dengan <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> = NaN (missing value buatan untuk simulasi KNN Imputation).</p>
 </div></blockquote>
@@ -915,7 +915,7 @@ Hamming Distance (untuk fitur kategorikal): 0 (semua numeric)
 <div class="math notranslate nohighlight">
 \[d(5,0) = \sqrt{(5.4-5.1)^2 + (3.9-3.5)^2 + (1.7-1.4)^2} = \sqrt{0.09 + 0.16 + 0.09} = \sqrt{0.34} \approx 0.5831\]</div>
 <p>Setelah menghitung jarak ke <strong>semua 149 baris lainnya</strong>, diambil <strong>k=3 tetangga terdekat</strong>:</p>
-<p>![10 Jarak Terkecil Dataset Iris — 3 Tetangga Terpilih (Hijau)](Pertemuan3/iris 10 jarak terkecil.png)</p>
+<p><img alt="10 Jarak Terkecil Dataset Iris — 3 Tetangga Terpilih (Hijau)" src="_images/iris-10-jarak-terkecil.png" /></p>
 <blockquote>
 <div><p><strong>Gambar:</strong> Tabel 10 jarak terkecil dari baris 5 ke baris-baris lain. Tiga baris teratas (hijau) adalah tetangga terdekat yang akan digunakan untuk imputasi.</p>
 </div></blockquote>
@@ -925,7 +925,7 @@ Hamming Distance (untuk fitur kategorikal): 0 (semua numeric)
 <p>Nilai imputasi dihitung sebagai <strong>rata-rata <code class="docutils literal notranslate"><span class="pre">petal_width</span></code></strong> dari 3 tetangga terdekat:</p>
 <div class="math notranslate nohighlight">
 \[\hat{y} = \frac{pw_1 + pw_2 + pw_3}{3}\]</div>
-<p>![Hasil Imputasi KNN — Baris 5 Iris](Pertemuan3/iris baris 5 setelah imputasi KKN.png)</p>
+<p><img alt="Hasil Imputasi KNN — Baris 5 Iris" src="_images/iris-baris-5-setelah-imputasi-KKN.png" /></p>
 <blockquote>
 <div><p><strong>Gambar:</strong> Baris 5 setelah KNN Imputation — kolom <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> yang sebelumnya NaN kini terisi dengan nilai rata-rata dari 3 tetangga terdekat.</p>
 </div></blockquote>
@@ -1465,7 +1465,7 @@ Berbeda dengan Iris, dataset Palmer Penguins **memiliki missing value nyata** pa
 | `Body Mass (g)` | 2 | Massa tubuh tidak tercatat |
 | `Comments` | banyak | Kolom opsional |
 
-![Jumlah Missing Value per Kolom — Palmer Penguins](Pertemuan3/jumlah missing value peungins.png)
+![Jumlah Missing Value per Kolom — Palmer Penguins](Pertemuan3/jumlah-missing-value-peungins.png)
 
 &gt; **Gambar:** Grafik batang menunjukkan jumlah missing value per kolom pada dataset Palmer Penguins (344 baris). Kolom isotop (`Delta 15 N`, `Delta 13 C`) dan `Sex` memiliki missing value terbanyak.
 
@@ -1536,14 +1536,14 @@ Kolom <code class="docutils literal notranslate"><span class="pre">Body</span> <
 </section>
 <section id="missing-value-buatan-pada-body-mass">
 <h4>Missing Value Buatan pada Body Mass<a class="headerlink" href="#missing-value-buatan-pada-body-mass" title="Link to this heading">#</a></h4>
-<p>![Missing Value Body Mass Penguins](Pertemuan3/bodymass peungeins missing value.png)</p>
+<p><img alt="Missing Value Body Mass Penguins" src="_images/bodymass-peungeins-missing-value.png" /></p>
 <blockquote>
 <div><p><strong>Gambar:</strong> Baris target Palmer Penguins dengan <code class="docutils literal notranslate"><span class="pre">Body</span> <span class="pre">Mass</span> <span class="pre">(g)</span></code> = NaN (missing value buatan). Kolom lainnya lengkap dan akan digunakan untuk menghitung jarak.</p>
 </div></blockquote>
 </section>
 <section id="jarak-terkecil-dan-tetangga-terdekat">
 <h4>10 Jarak Terkecil dan Tetangga Terdekat<a class="headerlink" href="#jarak-terkecil-dan-tetangga-terdekat" title="Link to this heading">#</a></h4>
-<p>![10 Jarak Terkecil — Palmer Penguins (3 Tetangga Terpilih)](Pertemuan3/jarak terkecil.png)</p>
+<p><img alt="10 Jarak Terkecil — Palmer Penguins (3 Tetangga Terpilih)" src="_images/jarak-terkecil.png" /></p>
 <blockquote>
 <div><p><strong>Gambar:</strong> Tabel 10 jarak terkecil (total) pada data campuran Palmer Penguins. Kolom <code class="docutils literal notranslate"><span class="pre">d_num</span></code> adalah jarak numerik (Euclidean ternormalisasi), <code class="docutils literal notranslate"><span class="pre">d_kat</span></code> adalah jarak kategorikal, dan <code class="docutils literal notranslate"><span class="pre">d_total</span></code> = <code class="docutils literal notranslate"><span class="pre">d_num</span></code> + <code class="docutils literal notranslate"><span class="pre">d_kat</span></code>. Tiga baris teratas (hijau) adalah tetangga terdekat.</p>
 </div></blockquote>
@@ -1553,7 +1553,7 @@ Kolom <code class="docutils literal notranslate"><span class="pre">Body</span> <
 <p>Setelah mendapatkan 3 tetangga terdekat, missing value diisi dengan <strong>rata-rata <code class="docutils literal notranslate"><span class="pre">Body</span> <span class="pre">Mass</span> <span class="pre">(g)</span></code></strong> dari ketiga tetangga:</p>
 <div class="math notranslate nohighlight">
 \[\hat{y} = \frac{BM_1 + BM_2 + BM_3}{3}\]</div>
-<p>![Hasil Imputasi KNN — Body Mass Palmer Penguins](Pertemuan3/setelah implemntas kkn body mass.png)</p>
+<p><img alt="Hasil Imputasi KNN — Body Mass Palmer Penguins" src="_images/setelah-implemntas-kkn-body-mass.png" /></p>
 <blockquote>
 <div><p><strong>Gambar:</strong> Baris target setelah KNN Imputation — kolom <code class="docutils literal notranslate"><span class="pre">Body</span> <span class="pre">Mass</span> <span class="pre">(g)</span></code> yang sebelumnya NaN kini terisi dengan rata-rata dari 3 tetangga terdekat.</p>
 </div></blockquote>

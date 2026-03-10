@@ -183,7 +183,7 @@ Orange dapat mengambil data langsung dari database relasional melalui widget **S
 
 Data Iris telah berhasil dimasukkan ke PostgreSQL. Berikut bukti tampilan data di pgAdmin:
 
-![Bukti Data CSV Telah Dimasukkan ke PostgreSQL](Pertemuan3/Gambar Csv ke PostgreeSQL.png)
+![Bukti Data CSV Telah Dimasukkan ke PostgreSQL](Pertemuan3/Gambar-Csv-ke-PostgreeSQL.png)
 
 > **Gambar:** Tampilan pgAdmin/psql menunjukkan data Iris berhasil di-import ke tabel PostgreSQL. Query `SELECT * FROM public.iris` mengembalikan 150 baris data lengkap.
 
@@ -304,7 +304,7 @@ Dataset Iris **tidak memiliki missing value** secara asli. Untuk demonstrasi KNN
 
 Nilai asli `petal_width` baris 5 = **0.4** — ini akan digunakan untuk memvalidasi hasil imputasi.
 
-![Missing Value Buatan pada Iris Baris 5](Pertemuan3/iris missing value buatan.png)
+![Missing Value Buatan pada Iris Baris 5](Pertemuan3/iris-missing-value-buatan.png)
 
 > **Gambar:** Tabel menunjukkan baris 5 dataset Iris dengan `petal_width` = NaN (missing value buatan untuk simulasi KNN Imputation).
 
@@ -322,7 +322,7 @@ $$d(5,0) = \sqrt{(5.4-5.1)^2 + (3.9-3.5)^2 + (1.7-1.4)^2} = \sqrt{0.09 + 0.16 + 
 
 Setelah menghitung jarak ke **semua 149 baris lainnya**, diambil **k=3 tetangga terdekat**:
 
-![10 Jarak Terkecil Dataset Iris — 3 Tetangga Terpilih (Hijau)](Pertemuan3/iris 10 jarak terkecil.png)
+![10 Jarak Terkecil Dataset Iris — 3 Tetangga Terpilih (Hijau)](Pertemuan3/iris-10-jarak-terkecil.png)
 
 > **Gambar:** Tabel 10 jarak terkecil dari baris 5 ke baris-baris lain. Tiga baris teratas (hijau) adalah tetangga terdekat yang akan digunakan untuk imputasi.
 
@@ -332,7 +332,7 @@ Nilai imputasi dihitung sebagai **rata-rata `petal_width`** dari 3 tetangga terd
 
 $$\hat{y} = \frac{pw_1 + pw_2 + pw_3}{3}$$
 
-![Hasil Imputasi KNN — Baris 5 Iris](Pertemuan3/iris baris 5 setelah imputasi KKN.png)
+![Hasil Imputasi KNN — Baris 5 Iris](Pertemuan3/iris-baris-5-setelah-imputasi-KKN.png)
 
 > **Gambar:** Baris 5 setelah KNN Imputation — kolom `petal_width` yang sebelumnya NaN kini terisi dengan nilai rata-rata dari 3 tetangga terdekat.
 
@@ -645,7 +645,7 @@ Berbeda dengan Iris, dataset Palmer Penguins **memiliki missing value nyata** pa
 | `Body Mass (g)` | 2 | Massa tubuh tidak tercatat |
 | `Comments` | banyak | Kolom opsional |
 
-![Jumlah Missing Value per Kolom — Palmer Penguins](Pertemuan3/jumlah missing value peungins.png)
+![Jumlah Missing Value per Kolom — Palmer Penguins](Pertemuan3/jumlah-missing-value-peungins.png)
 
 > **Gambar:** Grafik batang menunjukkan jumlah missing value per kolom pada dataset Palmer Penguins (344 baris). Kolom isotop (`Delta 15 N`, `Delta 13 C`) dan `Sex` memiliki missing value terbanyak.
 
@@ -695,13 +695,13 @@ $$d_{total} = d_{num} + d_{kat}$$
 
 #### Missing Value Buatan pada Body Mass
 
-![Missing Value Body Mass Penguins](Pertemuan3/bodymass peungeins missing value.png)
+![Missing Value Body Mass Penguins](Pertemuan3/bodymass-peungeins-missing-value.png)
 
 > **Gambar:** Baris target Palmer Penguins dengan `Body Mass (g)` = NaN (missing value buatan). Kolom lainnya lengkap dan akan digunakan untuk menghitung jarak.
 
 #### 10 Jarak Terkecil dan Tetangga Terdekat
 
-![10 Jarak Terkecil — Palmer Penguins (3 Tetangga Terpilih)](Pertemuan3/jarak terkecil.png)
+![10 Jarak Terkecil — Palmer Penguins (3 Tetangga Terpilih)](Pertemuan3/jarak-terkecil.png)
 
 > **Gambar:** Tabel 10 jarak terkecil (total) pada data campuran Palmer Penguins. Kolom `d_num` adalah jarak numerik (Euclidean ternormalisasi), `d_kat` adalah jarak kategorikal, dan `d_total` = `d_num` + `d_kat`. Tiga baris teratas (hijau) adalah tetangga terdekat.
 
@@ -711,7 +711,7 @@ Setelah mendapatkan 3 tetangga terdekat, missing value diisi dengan **rata-rata 
 
 $$\hat{y} = \frac{BM_1 + BM_2 + BM_3}{3}$$
 
-![Hasil Imputasi KNN — Body Mass Palmer Penguins](Pertemuan3/setelah implemntas kkn body mass.png)
+![Hasil Imputasi KNN — Body Mass Palmer Penguins](Pertemuan3/setelah-implemntas-kkn-body-mass.png)
 
 > **Gambar:** Baris target setelah KNN Imputation — kolom `Body Mass (g)` yang sebelumnya NaN kini terisi dengan rata-rata dari 3 tetangga terdekat.
 
