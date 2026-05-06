@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scheme version="2.0" title="" description="">
+	<nodes>
+		<node id="0" name="CSV File Import" qualified_name="Orange.widgets.data.owcsvimport.OWCSVFileImport" project_name="Orange3" version="" title="CSV File Import" position="(405.0, 277.0)" />
+		<node id="1" name="Distance Matrix" qualified_name="Orange.widgets.unsupervised.owdistancematrix.OWDistanceMatrix" project_name="Orange3" version="" title="Distance Matrix Euclidean" position="(903.0, 149.0)" />
+		<node id="2" name="Data Table" qualified_name="Orange.widgets.data.owtable.OWTable" project_name="Orange3" version="" title="Data Table" position="(554.0, 277.0)" />
+		<node id="3" name="Distances" qualified_name="Orange.widgets.unsupervised.owdistances.OWDistances" project_name="Orange3" version="" title="Eucledian Distances" position="(771.0, 151.0)" />
+		<node id="4" name="SQL Table" qualified_name="Orange.widgets.data.owsql.OWSql" project_name="Orange3" version="" title="SQL Table" position="(420.7777777777778, 843.2222222222222)" />
+		<node id="5" name="Save Distance Matrix" qualified_name="Orange.widgets.unsupervised.owsavedistances.OWSaveDistances" project_name="Orange3" version="" title="Save Distance Matrix" position="(1047.0, 150.0)" />
+		<node id="6" name="Distances" qualified_name="Orange.widgets.unsupervised.owdistances.OWDistances" project_name="Orange3" version="" title="Manhattan Distances" position="(785.0, 278.0)" />
+		<node id="7" name="Distances" qualified_name="Orange.widgets.unsupervised.owdistances.OWDistances" project_name="Orange3" version="" title="Spearman Distances" position="(785.0, 412.0)" />
+		<node id="8" name="Distance Matrix" qualified_name="Orange.widgets.unsupervised.owdistancematrix.OWDistanceMatrix" project_name="Orange3" version="" title="Distance Matrix Manhattan" position="(908.0, 277.0)" />
+		<node id="9" name="Distance Matrix" qualified_name="Orange.widgets.unsupervised.owdistancematrix.OWDistanceMatrix" project_name="Orange3" version="" title="Distance Matrix Spearman" position="(921.0, 413.0)" />
+		<node id="10" name="Save Distance Matrix" qualified_name="Orange.widgets.unsupervised.owsavedistances.OWSaveDistances" project_name="Orange3" version="" title="Save Distance Matrix (1)" position="(1066.0, 275.0)" />
+		<node id="11" name="Save Distance Matrix" qualified_name="Orange.widgets.unsupervised.owsavedistances.OWSaveDistances" project_name="Orange3" version="" title="Save Distance Matrix (2)" position="(1084.0, 410.0)" />
+		<node id="12" name="Distances" qualified_name="Orange.widgets.unsupervised.owdistances.OWDistances" project_name="Orange3" version="" title="Hamming Distances" position="(785.0, 532.0)" />
+		<node id="13" name="Distance Matrix" qualified_name="Orange.widgets.unsupervised.owdistancematrix.OWDistanceMatrix" project_name="Orange3" version="" title="Distance Matrix Hammng" position="(921.0, 533.0)" />
+		<node id="14" name="Save Distance Matrix" qualified_name="Orange.widgets.unsupervised.owsavedistances.OWSaveDistances" project_name="Orange3" version="" title="Save Distance Matrix (3)" position="(1084.0, 530.0)" />
+		<node id="15" name="Data Table" qualified_name="Orange.widgets.data.owtable.OWTable" project_name="Orange3" version="" title="Data Table (1)" position="(580.0, 850.8888888888887)" />
+		<node id="16" name="Distance Matrix" qualified_name="Orange.widgets.unsupervised.owdistancematrix.OWDistanceMatrix" project_name="Orange3" version="" title="Distance Matrix Euclidean (1)" position="(906.3333333333333, 657.8888888888889)" />
+		<node id="17" name="Distances" qualified_name="Orange.widgets.unsupervised.owdistances.OWDistances" project_name="Orange3" version="" title="Eucledian Distances (1)" position="(774.3333333333333, 659.8888888888889)" />
+		<node id="18" name="Save Distance Matrix" qualified_name="Orange.widgets.unsupervised.owsavedistances.OWSaveDistances" project_name="Orange3" version="" title="Save Distance Matrix (4)" position="(1050.3333333333333, 658.8888888888889)" />
+		<node id="19" name="Distances" qualified_name="Orange.widgets.unsupervised.owdistances.OWDistances" project_name="Orange3" version="" title="Manhattan Distances (1)" position="(788.3333333333333, 786.8888888888889)" />
+		<node id="20" name="Distances" qualified_name="Orange.widgets.unsupervised.owdistances.OWDistances" project_name="Orange3" version="" title="Spearman Distances (1)" position="(788.3333333333333, 920.8888888888889)" />
+		<node id="21" name="Distance Matrix" qualified_name="Orange.widgets.unsupervised.owdistancematrix.OWDistanceMatrix" project_name="Orange3" version="" title="Distance Matrix Manhattan (1)" position="(911.3333333333333, 785.8888888888889)" />
+		<node id="22" name="Distance Matrix" qualified_name="Orange.widgets.unsupervised.owdistancematrix.OWDistanceMatrix" project_name="Orange3" version="" title="Distance Matrix Spearman (1)" position="(924.3333333333333, 921.8888888888889)" />
+		<node id="23" name="Save Distance Matrix" qualified_name="Orange.widgets.unsupervised.owsavedistances.OWSaveDistances" project_name="Orange3" version="" title="Save Distance Matrix (5)" position="(1069.3333333333333, 783.8888888888889)" />
+		<node id="24" name="Save Distance Matrix" qualified_name="Orange.widgets.unsupervised.owsavedistances.OWSaveDistances" project_name="Orange3" version="" title="Save Distance Matrix (6)" position="(1087.3333333333333, 918.8888888888889)" />
+		<node id="25" name="Distances" qualified_name="Orange.widgets.unsupervised.owdistances.OWDistances" project_name="Orange3" version="" title="Hamming Distances (1)" position="(788.3333333333333, 1040.888888888889)" />
+		<node id="26" name="Distance Matrix" qualified_name="Orange.widgets.unsupervised.owdistancematrix.OWDistanceMatrix" project_name="Orange3" version="" title="Distance Matrix Hammng (1)" position="(924.3333333333333, 1041.888888888889)" />
+		<node id="27" name="Save Distance Matrix" qualified_name="Orange.widgets.unsupervised.owsavedistances.OWSaveDistances" project_name="Orange3" version="" title="Save Distance Matrix (7)" position="(1087.3333333333333, 1038.888888888889)" />
+	</nodes>
+	<links>
+		<link id="0" source_node_id="0" sink_node_id="2" source_channel="Data" sink_channel="Data" enabled="true" source_channel_id="data" sink_channel_id="data" />
+		<link id="1" source_node_id="2" sink_node_id="3" source_channel="Selected Data" sink_channel="Data" enabled="true" source_channel_id="selected_data" sink_channel_id="data" />
+		<link id="2" source_node_id="3" sink_node_id="1" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="3" source_node_id="1" sink_node_id="5" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="4" source_node_id="2" sink_node_id="6" source_channel="Selected Data" sink_channel="Data" enabled="true" source_channel_id="selected_data" sink_channel_id="data" />
+		<link id="5" source_node_id="2" sink_node_id="7" source_channel="Selected Data" sink_channel="Data" enabled="true" source_channel_id="selected_data" sink_channel_id="data" />
+		<link id="6" source_node_id="6" sink_node_id="8" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="7" source_node_id="7" sink_node_id="9" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="8" source_node_id="9" sink_node_id="11" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="9" source_node_id="8" sink_node_id="10" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="10" source_node_id="12" sink_node_id="13" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="11" source_node_id="13" sink_node_id="14" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="12" source_node_id="2" sink_node_id="12" source_channel="Selected Data" sink_channel="Data" enabled="true" source_channel_id="selected_data" sink_channel_id="data" />
+		<link id="13" source_node_id="4" sink_node_id="15" source_channel="Data" sink_channel="Data" enabled="true" source_channel_id="data" sink_channel_id="data" />
+		<link id="14" source_node_id="17" sink_node_id="16" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="15" source_node_id="16" sink_node_id="18" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="16" source_node_id="19" sink_node_id="21" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="17" source_node_id="20" sink_node_id="22" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="18" source_node_id="22" sink_node_id="24" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="19" source_node_id="21" sink_node_id="23" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="20" source_node_id="25" sink_node_id="26" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="21" source_node_id="26" sink_node_id="27" source_channel="Distances" sink_channel="Distances" enabled="true" source_channel_id="distances" sink_channel_id="distances" />
+		<link id="22" source_node_id="15" sink_node_id="17" source_channel="Selected Data" sink_channel="Data" enabled="true" source_channel_id="selected_data" sink_channel_id="data" />
+		<link id="23" source_node_id="15" sink_node_id="19" source_channel="Selected Data" sink_channel="Data" enabled="true" source_channel_id="selected_data" sink_channel_id="data" />
+		<link id="24" source_node_id="15" sink_node_id="20" source_channel="Selected Data" sink_channel="Data" enabled="true" source_channel_id="selected_data" sink_channel_id="data" />
+		<link id="25" source_node_id="15" sink_node_id="25" source_channel="Selected Data" sink_channel="Data" enabled="true" source_channel_id="selected_data" sink_channel_id="data" />
+	</links>
+	<annotations />
+	<thumbnail />
+	<node_properties>
+		<properties node_id="0" format="literal">{'_session_items': [], '_session_items_v2': [({'type': 'AbsPath', 'path': 'D:/PenambanganData/DataCampuran/Penguins/penguins_lter.csv'}, {'encoding': 'utf-8', 'delimiter': ',', 'quotechar': '"', 'doublequote': True, 'skipinitialspace': True, 'quoting': 0, 'columntypes': [{'start': 0, 'stop': 17, 'value': 'Auto'}], 'rowspec': [{'start': 0, 'stop': 1, 'value': 'Header'}], 'decimal_separator': '.', 'group_separator': ''}), ({'type': 'AbsPath', 'path': 'D:/PenambanganData/DataCampuran/Bank Marketing/bank.csv'}, {'encoding': 'utf-8', 'delimiter': ',', 'quotechar': '"', 'doublequote': True, 'skipinitialspace': True, 'quoting': 0, 'columntypes': [{'start': 0, 'stop': 17, 'value': 'Auto'}], 'rowspec': [{'start': 0, 'stop': 1, 'value': 'Header'}], 'decimal_separator': '.', 'group_separator': ''}), ({'type': 'AbsPath', 'path': 'C:/Users/ASUS/Downloads/IRIS.csv'}, {'encoding': 'utf-8', 'delimiter': ',', 'quotechar': '"', 'doublequote': True, 'skipinitialspace': True, 'quoting': 0, 'columntypes': [{'start': 0, 'stop': 5, 'value': 'Auto'}], 'rowspec': [{'start': 0, 'stop': 1, 'value': 'Header'}], 'decimal_separator': '.', 'group_separator': ''})], 'compatibility_mode': False, 'controlAreaVisible': True, 'dialog_state': {'directory': 'D:/PenambanganData/DataCampuran/Penguins', 'filter': 'Text - comma separated (*.csv, *)'}, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\xf4\x00\x00\x00\x96\x00\x00\x03\x0b\x00\x00\x01\xed\x00\x00\x01\xf5\x00\x00\x00\xb4\x00\x00\x03\n\x00\x00\x01\xec\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x01\xf5\x00\x00\x00\xb4\x00\x00\x03\n\x00\x00\x01\xec', '__version__': 3}</properties>
+		<properties node_id="1" format="pickle">gASV7QQAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBNzYXZl
+ZFdpZGdldEdlb21ldHJ5lENCAdnQywADAAAAAADvAAAAQgAABBAAAAJAAAAA8AAAAGAAAAQPAAAC
+PwAAAAAAAAAABQAAAADwAAAAYAAABA8AAAI/lIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZQojBVvcmFuZ2V3aWRnZXQuc2V0dGluZ3OUjAdDb250ZXh0lJOUKYGUfZQojAZ2YWx1
+ZXOUfZRoBUsCc4wFc2hhcGWUTVgBTVgBhpSMCXN5bW1ldHJpY5SIjAthbm5vdGF0aW9uc5RdlCiM
+BE5vbmWUjAlFbnVtZXJhdGWUjAlzdHVkeU5hbWWUjA1TYW1wbGUgTnVtYmVylIwHU3BlY2llc5SM
+BlJlZ2lvbpSMBklzbGFuZJSMBVN0YWdllIwRQ2x1dGNoIENvbXBsZXRpb26UjAhEYXRlIEVnZ5SM
+EkN1bG1lbiBMZW5ndGggKG1tKZSMEUN1bG1lbiBEZXB0aCAobW0plIwTRmxpcHBlciBMZW5ndGgg
+KG1tKZSMDUJvZHkgTWFzcyAoZymUjANTZXiUjBFEZWx0YSAxNSBOIChvL29vKZSMEURlbHRhIDEz
+IEMgKG8vb28plIwIQ29tbWVudHOUjA1JbmRpdmlkdWFsIElElGWMCmFubm90YXRpb26UjA1JbmRp
+dmlkdWFsIElElIwJc2VsZWN0aW9ulF2UdWJoCimBlH2UKGgNfZRoBUsCc2gPS+9L74aUaBGIaBJd
+lCiMBE5vbmWUjAlFbnVtZXJhdGWUjANhZ2WUjANqb2KUjAdtYXJpdGFslIwJZWR1Y2F0aW9ulIwH
+ZGVmYXVsdJSMB2JhbGFuY2WUjAdob3VzaW5nlIwEbG9hbpSMB2NvbnRhY3SUjANkYXmUjAVtb250
+aJSMCGR1cmF0aW9ulIwIY2FtcGFpZ26UjAVwZGF5c5SMCHByZXZpb3VzlIwIcG91dGNvbWWUjAdk
+ZXBvc2l0lGVoJ4wJRW51bWVyYXRllGgpXZR1YmgKKYGUfZQoaA19lGgFSwJzaA9LlkuWhpRoEYho
+El2UKIwETm9uZZSMCUVudW1lcmF0ZZSMDHNlcGFsX2xlbmd0aJSMC3NlcGFsX3dpZHRolIwMcGV0
+YWxfbGVuZ3RolIwLcGV0YWxfd2lkdGiUjAdzcGVjaWVzlGVoJ4wJRW51bWVyYXRllGgpXZQoSwBL
+AUsCSwNLBEsFSwZLB0sISwlLCksLSwxLDUsOSw9LEEsRSxJLE0sUSxVLFksXSxhLGUsaSxtLHEsd
+Sx5LH0sgSyFLIksjSyRLJUsmSydLKEspSypLK0ssSy1LLksvSzBLMUsySzNLNEs1SzZLN0s4SzlL
+Oks7SzxLPUs+Sz9LQEtBS0JLQ0tES0VLRktHS0hLSUtKS0tLTEtNS05LT0tQS1FLUktTS1RLVUtW
+S1dLWEtZS1pLW0tcS11LXktfS2BLYUtiS2NLZEtlS2ZLZ0toS2lLaktrS2xLbUtuS29LcEtxS3JL
+c0t0S3VLdkt3S3hLeUt6S3tLfEt9S35Lf0uAS4FLgkuDS4RLhUuGS4dLiEuJS4pLi0uMS41LjkuP
+S5BLkUuSS5NLlEuVZXViZXUu
+</properties>
+		<properties node_id="2" format="literal">{'auto_commit': True, 'color_by_class': True, 'controlAreaVisible': True, 'savedWidgetGeometry': None, 'select_rows': True, 'show_attribute_labels': True, 'show_distributions': False, 'stored_selection': {'rows': [], 'columns': []}, 'stored_sort': [], '__version__': 1}</properties>
+		<properties node_id="3" format="literal">{'autocommit': True, 'axis': 0, 'controlAreaVisible': True, 'metric_id': 1, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\xdb\x00\x00\x00\x9e\x00\x00\x03$\x00\x00\x01\xfb\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xfa\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xfa', '__version__': 4}</properties>
+		<properties node_id="4" format="pickle">gASVpQEAAAAAAAB9lCiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjAtkYXRhX3NvdXJjZZRLAIwIZGF0
+YWJhc2WUjAhQZW5ndWluc5SMDGd1ZXNzX3ZhbHVlc5SIjARob3N0lIwJMTI3LjAuMC4xlIwLbWF0
+ZXJpYWxpemWUiYwWbWF0ZXJpYWxpemVfdGFibGVfbmFtZZSMAJSMBHBvcnSUTowTc2F2ZWRXaWRn
+ZXRHZW9tZXRyeZRDQgHZ0MsAAwAAAAADKQAAAMQAAASWAAACPQAAAyoAAADiAAAElQAAAjwAAAAA
+AAAAAAUAAAADKgAAAOIAAASVAAACPJSMBnNjaGVtYZRoCowQc2VsZWN0ZWRfYmFja2VuZJROjANz
+cWyUaAqMBXRhYmxllIwcT3JhbmdlLmRhdGEuc3FsLmJhY2tlbmQuYmFzZZSMCVRhYmxlRGVzY5ST
+lCmBlH2UKIwEbmFtZZSMDXBlbmd1aW5zX2x0ZXKUaA6MBnB1YmxpY5RoEIwYInB1YmxpYyIuInBl
+bmd1aW5zX2x0ZXIilHVijAtfX3ZlcnNpb25fX5RLAnUu
+</properties>
+		<properties node_id="5" format="literal">{'auto_save': False, 'controlAreaVisible': True, 'filter': 'Excel File (*.xlsx)', 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x02\r\x00\x00\x01\x01\x00\x00\x03\x1d\x00\x00\x01\x98\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03\x1c\x00\x00\x01\x97\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03\x1c\x00\x00\x01\x97', 'stored_name': 'EuclidanDistance.xlsx', 'stored_path': 'C:\\Users\\ASUS\\', '__version__': 1}</properties>
+		<properties node_id="6" format="literal">{'autocommit': True, 'axis': 0, 'controlAreaVisible': True, 'metric_id': 3, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\xdb\x00\x00\x00\x9e\x00\x00\x03$\x00\x00\x01\xe5\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4', '__version__': 4}</properties>
+		<properties node_id="7" format="literal">{'autocommit': True, 'axis': 0, 'controlAreaVisible': True, 'metric_id': 1, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\xdb\x00\x00\x00\x9e\x00\x00\x03$\x00\x00\x01\xe5\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4', '__version__': 4}</properties>
+		<properties node_id="8" format="pickle">gASV7QQAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBNzYXZl
+ZFdpZGdldEdlb21ldHJ5lENCAdnQywADAAAAAADvAAAAQgAABBAAAAJAAAAA8AAAAGAAAAQPAAAC
+PwAAAAAAAAAABQAAAADwAAAAYAAABA8AAAI/lIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZQojBVvcmFuZ2V3aWRnZXQuc2V0dGluZ3OUjAdDb250ZXh0lJOUKYGUfZQojAZ2YWx1
+ZXOUfZRoBUsCc4wFc2hhcGWUTVgBTVgBhpSMCXN5bW1ldHJpY5SIjAthbm5vdGF0aW9uc5RdlCiM
+BE5vbmWUjAlFbnVtZXJhdGWUjAlzdHVkeU5hbWWUjA1TYW1wbGUgTnVtYmVylIwHU3BlY2llc5SM
+BlJlZ2lvbpSMBklzbGFuZJSMBVN0YWdllIwRQ2x1dGNoIENvbXBsZXRpb26UjAhEYXRlIEVnZ5SM
+EkN1bG1lbiBMZW5ndGggKG1tKZSMEUN1bG1lbiBEZXB0aCAobW0plIwTRmxpcHBlciBMZW5ndGgg
+KG1tKZSMDUJvZHkgTWFzcyAoZymUjANTZXiUjBFEZWx0YSAxNSBOIChvL29vKZSMEURlbHRhIDEz
+IEMgKG8vb28plIwIQ29tbWVudHOUjA1JbmRpdmlkdWFsIElElGWMCmFubm90YXRpb26UjA1JbmRp
+dmlkdWFsIElElIwJc2VsZWN0aW9ulF2UdWJoCimBlH2UKGgNfZRoBUsCc2gPS+9L74aUaBGIaBJd
+lCiMBE5vbmWUjAlFbnVtZXJhdGWUjANhZ2WUjANqb2KUjAdtYXJpdGFslIwJZWR1Y2F0aW9ulIwH
+ZGVmYXVsdJSMB2JhbGFuY2WUjAdob3VzaW5nlIwEbG9hbpSMB2NvbnRhY3SUjANkYXmUjAVtb250
+aJSMCGR1cmF0aW9ulIwIY2FtcGFpZ26UjAVwZGF5c5SMCHByZXZpb3VzlIwIcG91dGNvbWWUjAdk
+ZXBvc2l0lGVoJ4wJRW51bWVyYXRllGgpXZR1YmgKKYGUfZQoaA19lGgFSwJzaA9LlkuWhpRoEYho
+El2UKIwETm9uZZSMCUVudW1lcmF0ZZSMDHNlcGFsX2xlbmd0aJSMC3NlcGFsX3dpZHRolIwMcGV0
+YWxfbGVuZ3RolIwLcGV0YWxfd2lkdGiUjAdzcGVjaWVzlGVoJ4wJRW51bWVyYXRllGgpXZQoSwBL
+AUsCSwNLBEsFSwZLB0sISwlLCksLSwxLDUsOSw9LEEsRSxJLE0sUSxVLFksXSxhLGUsaSxtLHEsd
+Sx5LH0sgSyFLIksjSyRLJUsmSydLKEspSypLK0ssSy1LLksvSzBLMUsySzNLNEs1SzZLN0s4SzlL
+Oks7SzxLPUs+Sz9LQEtBS0JLQ0tES0VLRktHS0hLSUtKS0tLTEtNS05LT0tQS1FLUktTS1RLVUtW
+S1dLWEtZS1pLW0tcS11LXktfS2BLYUtiS2NLZEtlS2ZLZ0toS2lLaktrS2xLbUtuS29LcEtxS3JL
+c0t0S3VLdkt3S3hLeUt6S3tLfEt9S35Lf0uAS4FLgkuDS4RLhUuGS4dLiEuJS4pLi0uMS41LjkuP
+S5BLkUuSS5NLlEuVZXViZXUu
+</properties>
+		<properties node_id="9" format="pickle">gASV7QQAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBNzYXZl
+ZFdpZGdldEdlb21ldHJ5lENCAdnQywADAAD/////////+QAABQAAAAKgAAAA8AAAAGAAAAQPAAAC
+PwAAAAACAAAABQAAAAAAAAAAFwAABP8AAAKflIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZQojBVvcmFuZ2V3aWRnZXQuc2V0dGluZ3OUjAdDb250ZXh0lJOUKYGUfZQojAZ2YWx1
+ZXOUfZRoBUsCc4wFc2hhcGWUTVgBTVgBhpSMCXN5bW1ldHJpY5SIjAthbm5vdGF0aW9uc5RdlCiM
+BE5vbmWUjAlFbnVtZXJhdGWUjAlzdHVkeU5hbWWUjA1TYW1wbGUgTnVtYmVylIwHU3BlY2llc5SM
+BlJlZ2lvbpSMBklzbGFuZJSMBVN0YWdllIwRQ2x1dGNoIENvbXBsZXRpb26UjAhEYXRlIEVnZ5SM
+EkN1bG1lbiBMZW5ndGggKG1tKZSMEUN1bG1lbiBEZXB0aCAobW0plIwTRmxpcHBlciBMZW5ndGgg
+KG1tKZSMDUJvZHkgTWFzcyAoZymUjANTZXiUjBFEZWx0YSAxNSBOIChvL29vKZSMEURlbHRhIDEz
+IEMgKG8vb28plIwIQ29tbWVudHOUjA1JbmRpdmlkdWFsIElElGWMCmFubm90YXRpb26UjA1JbmRp
+dmlkdWFsIElElIwJc2VsZWN0aW9ulF2UdWJoCimBlH2UKGgNfZRoBUsCc2gPS+9L74aUaBGIaBJd
+lCiMBE5vbmWUjAlFbnVtZXJhdGWUjANhZ2WUjANqb2KUjAdtYXJpdGFslIwJZWR1Y2F0aW9ulIwH
+ZGVmYXVsdJSMB2JhbGFuY2WUjAdob3VzaW5nlIwEbG9hbpSMB2NvbnRhY3SUjANkYXmUjAVtb250
+aJSMCGR1cmF0aW9ulIwIY2FtcGFpZ26UjAVwZGF5c5SMCHByZXZpb3VzlIwIcG91dGNvbWWUjAdk
+ZXBvc2l0lGVoJ4wJRW51bWVyYXRllGgpXZR1YmgKKYGUfZQoaA19lGgFSwJzaA9LlkuWhpRoEYho
+El2UKIwETm9uZZSMCUVudW1lcmF0ZZSMDHNlcGFsX2xlbmd0aJSMC3NlcGFsX3dpZHRolIwMcGV0
+YWxfbGVuZ3RolIwLcGV0YWxfd2lkdGiUjAdzcGVjaWVzlGVoJ4wJRW51bWVyYXRllGgpXZQoSwBL
+AUsCSwNLBEsFSwZLB0sISwlLCksLSwxLDUsOSw9LEEsRSxJLE0sUSxVLFksXSxhLGUsaSxtLHEsd
+Sx5LH0sgSyFLIksjSyRLJUsmSydLKEspSypLK0ssSy1LLksvSzBLMUsySzNLNEs1SzZLN0s4SzlL
+Oks7SzxLPUs+Sz9LQEtBS0JLQ0tES0VLRktHS0hLSUtKS0tLTEtNS05LT0tQS1FLUktTS1RLVUtW
+S1dLWEtZS1pLW0tcS11LXktfS2BLYUtiS2NLZEtlS2ZLZ0toS2lLaktrS2xLbUtuS29LcEtxS3JL
+c0t0S3VLdkt3S3hLeUt6S3tLfEt9S35Lf0uAS4FLgkuDS4RLhUuGS4dLiEuJS4pLi0uMS41LjkuP
+S5BLkUuSS5NLlEuVZXViZXUu
+</properties>
+		<properties node_id="10" format="literal">{'auto_save': False, 'controlAreaVisible': True, 'filter': 'Excel File (*.xlsx)', 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x02\r\x00\x00\x01\x01\x00\x00\x03*\x00\x00\x01\x82\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03)\x00\x00\x01\x81\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03)\x00\x00\x01\x81', 'stored_name': 'ManhattanDistance.xlsx', 'stored_path': 'C:\\Users\\ASUS\\', '__version__': 1}</properties>
+		<properties node_id="11" format="literal">{'auto_save': False, 'controlAreaVisible': True, 'filter': 'Excel File (*.xlsx)', 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x02\r\x00\x00\x01\x01\x00\x00\x03&amp;\x00\x00\x01\x98\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03%\x00\x00\x01\x97\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03%\x00\x00\x01\x97', 'stored_name': 'SpearmanDistance.xlsx', 'stored_path': 'C:\\Users\\ASUS\\', '__version__': 1}</properties>
+		<properties node_id="12" format="literal">{'autocommit': True, 'axis': 0, 'controlAreaVisible': True, 'metric_id': 6, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\xdb\x00\x00\x00\x9e\x00\x00\x03$\x00\x00\x01\xe5\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4', '__version__': 4}</properties>
+		<properties node_id="13" format="pickle">gASVPwUAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBNzYXZl
+ZFdpZGdldEdlb21ldHJ5lENCAdnQywADAAD/////////+QAABQAAAAKgAAAA8AAAAGAAAAQPAAAC
+PwAAAAACAAAABQAAAAAAAAAAFwAABP8AAAKflIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZQojBVvcmFuZ2V3aWRnZXQuc2V0dGluZ3OUjAdDb250ZXh0lJOUKYGUfZQojAZ2YWx1
+ZXOUfZRoBUsCc4wFc2hhcGWUTVgBTVgBhpSMCXN5bW1ldHJpY5SIjAthbm5vdGF0aW9uc5RdlCiM
+BE5vbmWUjAlFbnVtZXJhdGWUjAlzdHVkeU5hbWWUjA1TYW1wbGUgTnVtYmVylIwHU3BlY2llc5SM
+BlJlZ2lvbpSMBklzbGFuZJSMBVN0YWdllIwRQ2x1dGNoIENvbXBsZXRpb26UjAhEYXRlIEVnZ5SM
+EkN1bG1lbiBMZW5ndGggKG1tKZSMEUN1bG1lbiBEZXB0aCAobW0plIwTRmxpcHBlciBMZW5ndGgg
+KG1tKZSMDUJvZHkgTWFzcyAoZymUjANTZXiUjBFEZWx0YSAxNSBOIChvL29vKZSMEURlbHRhIDEz
+IEMgKG8vb28plIwIQ29tbWVudHOUjA1JbmRpdmlkdWFsIElElGWMCmFubm90YXRpb26UjA1JbmRp
+dmlkdWFsIElElIwJc2VsZWN0aW9ulF2UdWJoCimBlH2UKGgNfZRoBUsCc2gPS+9L74aUaBGIaBJd
+lCiMBE5vbmWUjAlFbnVtZXJhdGWUjANhZ2WUjANqb2KUjAdtYXJpdGFslIwJZWR1Y2F0aW9ulIwH
+ZGVmYXVsdJSMB2JhbGFuY2WUjAdob3VzaW5nlIwEbG9hbpSMB2NvbnRhY3SUjANkYXmUjAVtb250
+aJSMCGR1cmF0aW9ulIwIY2FtcGFpZ26UjAVwZGF5c5SMCHByZXZpb3VzlIwIcG91dGNvbWWUjAdk
+ZXBvc2l0lGVoJ4wJRW51bWVyYXRllGgpXZR1YmgKKYGUfZQoaA19lGgFSwJzaA9LlkuWhpRoEYho
+El2UKIwETm9uZZSMCUVudW1lcmF0ZZSMDHNlcGFsX2xlbmd0aJSMC3NlcGFsX3dpZHRolIwMcGV0
+YWxfbGVuZ3RolIwLcGV0YWxfd2lkdGiUjAdzcGVjaWVzlGVoJ4wJRW51bWVyYXRllGgpXZQoSwBL
+AUsCSwNLBEsFSwZLB0sISwlLCksLSwxLDUsOSw9LEEsRSxJLE0sUSxVLFksXSxhLGUsaSxtLHEsd
+Sx5LH0sgSyFLIksjSyRLJUsmSydLKEspSypLK0ssSy1LLksvSzBLMUsySzNLNEs1SzZLN0s4SzlL
+Oks7SzxLPUs+Sz9LQEtBS0JLQ0tES0VLRktHS0hLSUtKS0tLTEtNS05LT0tQS1FLUktTS1RLVUtW
+S1dLWEtZS1pLW0tcS11LXktfS2BLYUtiS2NLZEtlS2ZLZ0toS2lLaktrS2xLbUtuS29LcEtxS3JL
+c0t0S3VLdkt3S3hLeUt6S3tLfEt9S35Lf0uAS4FLgkuDS4RLhUuGS4dLiEuJS4pLi0uMS41LjkuP
+S5BLkUuSS5NLlEuVZXViaAopgZR9lChoDX2UaAVLAnNoD0sESwSGlGgRiGgSXZQoaEpoS4wPQXR0
+cmlidXRlIG5hbWVzlGVoJ4wPQXR0cmlidXRlIG5hbWVzlGgpXZR1YmV1Lg==
+</properties>
+		<properties node_id="14" format="literal">{'auto_save': False, 'controlAreaVisible': True, 'filter': 'Excel File (*.xlsx)', 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x02\r\x00\x00\x01\x01\x00\x00\x03Z\x00\x00\x01\x82\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03Y\x00\x00\x01\x81\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03Y\x00\x00\x01\x81', 'stored_name': 'HammingSpearmanDistance.xlsx', 'stored_path': 'C:\\Users\\ASUS\\', '__version__': 1}</properties>
+		<properties node_id="15" format="literal">{'auto_commit': True, 'color_by_class': True, 'controlAreaVisible': True, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x00\xef\x00\x00\x00B\x00\x00\x04\x10\x00\x00\x02@\x00\x00\x00\xf0\x00\x00\x00`\x00\x00\x04\x0f\x00\x00\x02?\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x00\xf0\x00\x00\x00`\x00\x00\x04\x0f\x00\x00\x02?', 'select_rows': True, 'show_attribute_labels': True, 'show_distributions': False, 'stored_selection': {'rows': [], 'columns': []}, 'stored_sort': [], '__version__': 1}</properties>
+		<properties node_id="16" format="pickle">gASV+AQAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBNzYXZl
+ZFdpZGdldEdlb21ldHJ5lENCAdnQywADAAAAAADvAAAAQgAABBAAAAJAAAAA8AAAAGAAAAQPAAAC
+PwAAAAAAAAAABQAAAADwAAAAYAAABA8AAAI/lIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZQojBVvcmFuZ2V3aWRnZXQuc2V0dGluZ3OUjAdDb250ZXh0lJOUKYGUfZQojAZ2YWx1
+ZXOUfZRoBUsCc4wFc2hhcGWUTVgBTVgBhpSMCXN5bW1ldHJpY5SIjAthbm5vdGF0aW9uc5RdlCiM
+BE5vbmWUjAlFbnVtZXJhdGWUjApwZW5ndWluX2lklIwKc3R1ZHlfbmFtZZSMDXNhbXBsZV9udW1i
+ZXKUjAdzcGVjaWVzlIwGcmVnaW9ulIwGaXNsYW5klIwFc3RhZ2WUjBFjbHV0Y2hfY29tcGxldGlv
+bpSMEGN1bG1lbl9sZW5ndGhfbW2UjA9jdWxtZW5fZGVwdGhfbW2UjBFmbGlwcGVyX2xlbmd0aF9t
+bZSMC2JvZHlfbWFzc19nlIwDc2V4lIwKZGVsdGFfMTVfbpSMCmRlbHRhXzEzX2OUjAhjb21tZW50
+c5SMDWluZGl2aWR1YWxfaWSUjAhkYXRlX2VnZ5RljAphbm5vdGF0aW9ulIwNaW5kaXZpZHVhbF9p
+ZJSMCXNlbGVjdGlvbpRdlHViaAopgZR9lChoDX2UaAVLAnNoD0vvS++GlGgRiGgSXZQojAROb25l
+lIwJRW51bWVyYXRllIwJcGVyc29uX2lklIwDYWdllIwDam9ilIwHbWFyaXRhbJSMCWVkdWNhdGlv
+bpSMDmRlZmF1bHRfc3RhdHVzlIwHYmFsYW5jZZSMB2hvdXNpbmeUjARsb2FulIwHY29udGFjdJSM
+A2RheZSMBW1vbnRolIwIZHVyYXRpb26UjAhjYW1wYWlnbpSMBXBkYXlzlIwIcHJldmlvdXOUjAhw
+b3V0Y29tZZSMB2RlcG9zaXSUZWgojAlFbnVtZXJhdGWUaCpdlHViaAopgZR9lChoDX2UaAVLAnNo
+D0uWS5aGlGgRiGgSXZQojAROb25llIwJRW51bWVyYXRllIwMc2VwYWxfbGVuZ3RolIwLc2VwYWxf
+d2lkdGiUjAxwZXRhbF9sZW5ndGiUjAtwZXRhbF93aWR0aJSMB3NwZWNpZXOUZWgojAlFbnVtZXJh
+dGWUaCpdlChLAEsBSwJLA0sESwVLBksHSwhLCUsKSwtLDEsNSw5LD0sQSxFLEksTSxRLFUsWSxdL
+GEsZSxpLG0scSx1LHksfSyBLIUsiSyNLJEslSyZLJ0soSylLKksrSyxLLUsuSy9LMEsxSzJLM0s0
+SzVLNks3SzhLOUs6SztLPEs9Sz5LP0tAS0FLQktDS0RLRUtGS0dLSEtJS0pLS0tMS01LTktPS1BL
+UUtSS1NLVEtVS1ZLV0tYS1lLWktbS1xLXUteS19LYEthS2JLY0tkS2VLZktnS2hLaUtqS2tLbEtt
+S25Lb0twS3FLcktzS3RLdUt2S3dLeEt5S3pLe0t8S31Lfkt/S4BLgUuCS4NLhEuFS4ZLh0uIS4lL
+ikuLS4xLjUuOS49LkEuRS5JLk0uUS5VldWJldS4=
+</properties>
+		<properties node_id="17" format="literal">{'autocommit': True, 'axis': 0, 'controlAreaVisible': True, 'metric_id': 1, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\xdb\x00\x00\x00\x9e\x00\x00\x03$\x00\x00\x01\xfb\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xfa\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xfa', '__version__': 4}</properties>
+		<properties node_id="18" format="literal">{'auto_save': False, 'controlAreaVisible': True, 'filter': 'Excel File (*.xlsx)', 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x02\r\x00\x00\x01\x01\x00\x00\x03\x1d\x00\x00\x01\x98\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03\x1c\x00\x00\x01\x97\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03\x1c\x00\x00\x01\x97', 'stored_name': 'EuclidanDistance.xlsx', 'stored_path': 'C:\\Users\\ASUS\\', '__version__': 1}</properties>
+		<properties node_id="19" format="literal">{'autocommit': True, 'axis': 0, 'controlAreaVisible': True, 'metric_id': 3, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\xdb\x00\x00\x00\x9e\x00\x00\x03$\x00\x00\x01\xe5\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4', '__version__': 4}</properties>
+		<properties node_id="20" format="literal">{'autocommit': True, 'axis': 0, 'controlAreaVisible': True, 'metric_id': 1, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\xdb\x00\x00\x00\x9e\x00\x00\x03$\x00\x00\x01\xe5\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4', '__version__': 4}</properties>
+		<properties node_id="21" format="pickle">gASV+AQAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBNzYXZl
+ZFdpZGdldEdlb21ldHJ5lENCAdnQywADAAAAAADvAAAAQgAABBAAAAJAAAAA8AAAAGAAAAQPAAAC
+PwAAAAAAAAAABQAAAADwAAAAYAAABA8AAAI/lIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZQojBVvcmFuZ2V3aWRnZXQuc2V0dGluZ3OUjAdDb250ZXh0lJOUKYGUfZQojAZ2YWx1
+ZXOUfZRoBUsCc4wFc2hhcGWUTVgBTVgBhpSMCXN5bW1ldHJpY5SIjAthbm5vdGF0aW9uc5RdlCiM
+BE5vbmWUjAlFbnVtZXJhdGWUjApwZW5ndWluX2lklIwKc3R1ZHlfbmFtZZSMDXNhbXBsZV9udW1i
+ZXKUjAdzcGVjaWVzlIwGcmVnaW9ulIwGaXNsYW5klIwFc3RhZ2WUjBFjbHV0Y2hfY29tcGxldGlv
+bpSMEGN1bG1lbl9sZW5ndGhfbW2UjA9jdWxtZW5fZGVwdGhfbW2UjBFmbGlwcGVyX2xlbmd0aF9t
+bZSMC2JvZHlfbWFzc19nlIwDc2V4lIwKZGVsdGFfMTVfbpSMCmRlbHRhXzEzX2OUjAhjb21tZW50
+c5SMDWluZGl2aWR1YWxfaWSUjAhkYXRlX2VnZ5RljAphbm5vdGF0aW9ulIwNaW5kaXZpZHVhbF9p
+ZJSMCXNlbGVjdGlvbpRdlHViaAopgZR9lChoDX2UaAVLAnNoD0vvS++GlGgRiGgSXZQojAROb25l
+lIwJRW51bWVyYXRllIwJcGVyc29uX2lklIwDYWdllIwDam9ilIwHbWFyaXRhbJSMCWVkdWNhdGlv
+bpSMDmRlZmF1bHRfc3RhdHVzlIwHYmFsYW5jZZSMB2hvdXNpbmeUjARsb2FulIwHY29udGFjdJSM
+A2RheZSMBW1vbnRolIwIZHVyYXRpb26UjAhjYW1wYWlnbpSMBXBkYXlzlIwIcHJldmlvdXOUjAhw
+b3V0Y29tZZSMB2RlcG9zaXSUZWgojAlFbnVtZXJhdGWUaCpdlHViaAopgZR9lChoDX2UaAVLAnNo
+D0uWS5aGlGgRiGgSXZQojAROb25llIwJRW51bWVyYXRllIwMc2VwYWxfbGVuZ3RolIwLc2VwYWxf
+d2lkdGiUjAxwZXRhbF9sZW5ndGiUjAtwZXRhbF93aWR0aJSMB3NwZWNpZXOUZWgojAlFbnVtZXJh
+dGWUaCpdlChLAEsBSwJLA0sESwVLBksHSwhLCUsKSwtLDEsNSw5LD0sQSxFLEksTSxRLFUsWSxdL
+GEsZSxpLG0scSx1LHksfSyBLIUsiSyNLJEslSyZLJ0soSylLKksrSyxLLUsuSy9LMEsxSzJLM0s0
+SzVLNks3SzhLOUs6SztLPEs9Sz5LP0tAS0FLQktDS0RLRUtGS0dLSEtJS0pLS0tMS01LTktPS1BL
+UUtSS1NLVEtVS1ZLV0tYS1lLWktbS1xLXUteS19LYEthS2JLY0tkS2VLZktnS2hLaUtqS2tLbEtt
+S25Lb0twS3FLcktzS3RLdUt2S3dLeEt5S3pLe0t8S31Lfkt/S4BLgUuCS4NLhEuFS4ZLh0uIS4lL
+ikuLS4xLjUuOS49LkEuRS5JLk0uUS5VldWJldS4=
+</properties>
+		<properties node_id="22" format="pickle">gASV+AQAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBNzYXZl
+ZFdpZGdldEdlb21ldHJ5lENCAdnQywADAAD/////////+QAABQAAAAKgAAAA8AAAAGAAAAQPAAAC
+PwAAAAACAAAABQAAAAAAAAAAFwAABP8AAAKflIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZQojBVvcmFuZ2V3aWRnZXQuc2V0dGluZ3OUjAdDb250ZXh0lJOUKYGUfZQojAZ2YWx1
+ZXOUfZRoBUsCc4wFc2hhcGWUTVgBTVgBhpSMCXN5bW1ldHJpY5SIjAthbm5vdGF0aW9uc5RdlCiM
+BE5vbmWUjAlFbnVtZXJhdGWUjApwZW5ndWluX2lklIwKc3R1ZHlfbmFtZZSMDXNhbXBsZV9udW1i
+ZXKUjAdzcGVjaWVzlIwGcmVnaW9ulIwGaXNsYW5klIwFc3RhZ2WUjBFjbHV0Y2hfY29tcGxldGlv
+bpSMEGN1bG1lbl9sZW5ndGhfbW2UjA9jdWxtZW5fZGVwdGhfbW2UjBFmbGlwcGVyX2xlbmd0aF9t
+bZSMC2JvZHlfbWFzc19nlIwDc2V4lIwKZGVsdGFfMTVfbpSMCmRlbHRhXzEzX2OUjAhjb21tZW50
+c5SMDWluZGl2aWR1YWxfaWSUjAhkYXRlX2VnZ5RljAphbm5vdGF0aW9ulIwNaW5kaXZpZHVhbF9p
+ZJSMCXNlbGVjdGlvbpRdlHViaAopgZR9lChoDX2UaAVLAnNoD0vvS++GlGgRiGgSXZQojAROb25l
+lIwJRW51bWVyYXRllIwJcGVyc29uX2lklIwDYWdllIwDam9ilIwHbWFyaXRhbJSMCWVkdWNhdGlv
+bpSMDmRlZmF1bHRfc3RhdHVzlIwHYmFsYW5jZZSMB2hvdXNpbmeUjARsb2FulIwHY29udGFjdJSM
+A2RheZSMBW1vbnRolIwIZHVyYXRpb26UjAhjYW1wYWlnbpSMBXBkYXlzlIwIcHJldmlvdXOUjAhw
+b3V0Y29tZZSMB2RlcG9zaXSUZWgojAlFbnVtZXJhdGWUaCpdlHViaAopgZR9lChoDX2UaAVLAnNo
+D0uWS5aGlGgRiGgSXZQojAROb25llIwJRW51bWVyYXRllIwMc2VwYWxfbGVuZ3RolIwLc2VwYWxf
+d2lkdGiUjAxwZXRhbF9sZW5ndGiUjAtwZXRhbF93aWR0aJSMB3NwZWNpZXOUZWgojAlFbnVtZXJh
+dGWUaCpdlChLAEsBSwJLA0sESwVLBksHSwhLCUsKSwtLDEsNSw5LD0sQSxFLEksTSxRLFUsWSxdL
+GEsZSxpLG0scSx1LHksfSyBLIUsiSyNLJEslSyZLJ0soSylLKksrSyxLLUsuSy9LMEsxSzJLM0s0
+SzVLNks3SzhLOUs6SztLPEs9Sz5LP0tAS0FLQktDS0RLRUtGS0dLSEtJS0pLS0tMS01LTktPS1BL
+UUtSS1NLVEtVS1ZLV0tYS1lLWktbS1xLXUteS19LYEthS2JLY0tkS2VLZktnS2hLaUtqS2tLbEtt
+S25Lb0twS3FLcktzS3RLdUt2S3dLeEt5S3pLe0t8S31Lfkt/S4BLgUuCS4NLhEuFS4ZLh0uIS4lL
+ikuLS4xLjUuOS49LkEuRS5JLk0uUS5VldWJldS4=
+</properties>
+		<properties node_id="23" format="literal">{'auto_save': False, 'controlAreaVisible': True, 'filter': 'Excel File (*.xlsx)', 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x02\r\x00\x00\x01\x01\x00\x00\x03*\x00\x00\x01\x82\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03)\x00\x00\x01\x81\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03)\x00\x00\x01\x81', 'stored_name': 'ManhattanDistance.xlsx', 'stored_path': 'C:\\Users\\ASUS\\', '__version__': 1}</properties>
+		<properties node_id="24" format="literal">{'auto_save': False, 'controlAreaVisible': True, 'filter': 'Excel File (*.xlsx)', 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x02\r\x00\x00\x01\x01\x00\x00\x03&amp;\x00\x00\x01\x98\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03%\x00\x00\x01\x97\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03%\x00\x00\x01\x97', 'stored_name': 'SpearmanDistance.xlsx', 'stored_path': 'C:\\Users\\ASUS\\', '__version__': 1}</properties>
+		<properties node_id="25" format="literal">{'autocommit': True, 'axis': 0, 'controlAreaVisible': True, 'metric_id': 6, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\xdb\x00\x00\x00\x9e\x00\x00\x03$\x00\x00\x01\xe5\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x01\xdc\x00\x00\x00\xbc\x00\x00\x03#\x00\x00\x01\xe4', '__version__': 4}</properties>
+		<properties node_id="26" format="pickle">gASVSgUAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBNzYXZl
+ZFdpZGdldEdlb21ldHJ5lENCAdnQywADAAD/////////+QAABQAAAAKgAAAA8AAAAGAAAAQPAAAC
+PwAAAAACAAAABQAAAAAAAAAAFwAABP8AAAKflIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZQojBVvcmFuZ2V3aWRnZXQuc2V0dGluZ3OUjAdDb250ZXh0lJOUKYGUfZQojAZ2YWx1
+ZXOUfZRoBUsCc4wFc2hhcGWUTVgBTVgBhpSMCXN5bW1ldHJpY5SIjAthbm5vdGF0aW9uc5RdlCiM
+BE5vbmWUjAlFbnVtZXJhdGWUjApwZW5ndWluX2lklIwKc3R1ZHlfbmFtZZSMDXNhbXBsZV9udW1i
+ZXKUjAdzcGVjaWVzlIwGcmVnaW9ulIwGaXNsYW5klIwFc3RhZ2WUjBFjbHV0Y2hfY29tcGxldGlv
+bpSMEGN1bG1lbl9sZW5ndGhfbW2UjA9jdWxtZW5fZGVwdGhfbW2UjBFmbGlwcGVyX2xlbmd0aF9t
+bZSMC2JvZHlfbWFzc19nlIwDc2V4lIwKZGVsdGFfMTVfbpSMCmRlbHRhXzEzX2OUjAhjb21tZW50
+c5SMDWluZGl2aWR1YWxfaWSUjAhkYXRlX2VnZ5RljAphbm5vdGF0aW9ulIwNaW5kaXZpZHVhbF9p
+ZJSMCXNlbGVjdGlvbpRdlHViaAopgZR9lChoDX2UaAVLAnNoD0vvS++GlGgRiGgSXZQojAROb25l
+lIwJRW51bWVyYXRllIwJcGVyc29uX2lklIwDYWdllIwDam9ilIwHbWFyaXRhbJSMCWVkdWNhdGlv
+bpSMDmRlZmF1bHRfc3RhdHVzlIwHYmFsYW5jZZSMB2hvdXNpbmeUjARsb2FulIwHY29udGFjdJSM
+A2RheZSMBW1vbnRolIwIZHVyYXRpb26UjAhjYW1wYWlnbpSMBXBkYXlzlIwIcHJldmlvdXOUjAhw
+b3V0Y29tZZSMB2RlcG9zaXSUZWgojAlFbnVtZXJhdGWUaCpdlHViaAopgZR9lChoDX2UaAVLAnNo
+D0uWS5aGlGgRiGgSXZQojAROb25llIwJRW51bWVyYXRllIwMc2VwYWxfbGVuZ3RolIwLc2VwYWxf
+d2lkdGiUjAxwZXRhbF9sZW5ndGiUjAtwZXRhbF93aWR0aJSMB3NwZWNpZXOUZWgojAlFbnVtZXJh
+dGWUaCpdlChLAEsBSwJLA0sESwVLBksHSwhLCUsKSwtLDEsNSw5LD0sQSxFLEksTSxRLFUsWSxdL
+GEsZSxpLG0scSx1LHksfSyBLIUsiSyNLJEslSyZLJ0soSylLKksrSyxLLUsuSy9LMEsxSzJLM0s0
+SzVLNks3SzhLOUs6SztLPEs9Sz5LP0tAS0FLQktDS0RLRUtGS0dLSEtJS0pLS0tMS01LTktPS1BL
+UUtSS1NLVEtVS1ZLV0tYS1lLWktbS1xLXUteS19LYEthS2JLY0tkS2VLZktnS2hLaUtqS2tLbEtt
+S25Lb0twS3FLcktzS3RLdUt2S3dLeEt5S3pLe0t8S31Lfkt/S4BLgUuCS4NLhEuFS4ZLh0uIS4lL
+ikuLS4xLjUuOS49LkEuRS5JLk0uUS5VldWJoCimBlH2UKGgNfZRoBUsCc2gPSwRLBIaUaBGIaBJd
+lChoTGhNjA9BdHRyaWJ1dGUgbmFtZXOUZWgojA9BdHRyaWJ1dGUgbmFtZXOUaCpdlHViZXUu
+</properties>
+		<properties node_id="27" format="literal">{'auto_save': False, 'controlAreaVisible': True, 'filter': 'Excel File (*.xlsx)', 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x02\r\x00\x00\x01\x01\x00\x00\x03Z\x00\x00\x01\x82\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03Y\x00\x00\x01\x81\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x02\x0e\x00\x00\x01\x1f\x00\x00\x03Y\x00\x00\x01\x81', 'stored_name': 'HammingSpearmanDistance.xlsx', 'stored_path': 'C:\\Users\\ASUS\\', '__version__': 1}</properties>
+	</node_properties>
+	<session_state>
+		<window_groups />
+	</session_state>
+</scheme>
