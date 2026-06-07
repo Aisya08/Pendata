@@ -6,7 +6,7 @@ Proyek ini  digunakan untuk membuat analisis data menggunakan Regresi Linier
 - Menghitung secara analitik mencari koefisien regresi
 
      
-![image](https://hackmd.io/_uploads/SyvGP5cJGe.png)
+![regresi](_images/regresi1.png)
 
 ---
 
