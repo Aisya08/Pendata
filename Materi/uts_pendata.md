@@ -1,7 +1,4 @@
----
-title: Laporan Analisis Kesuburan Tanah Menggunakan K-Nearest Neighbors (KNN)
-
----
+# UTS PENDATA
 
 # Laporan Analisis Kesuburan Tanah Menggunakan K-Nearest Neighbors (KNN)
 
