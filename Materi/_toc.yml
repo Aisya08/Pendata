@@ -18,5 +18,8 @@ chapters:
 - file: Laporan Analisis Kesuburan Tanah Menggunakan K-Nearest Neighbors (KNN)
 - file: Laporan Perhitungan Decision Tree Menggunakan Gain Ratio
 - file: regresi_linear
+<<<<<<< HEAD
 - file: tugas_eo_biak
   title: "Tugas EO: Peramalan Kadar NO2 di Pulau Biak (Notebook)"
+=======
+- file: Analisa_Data (A)
